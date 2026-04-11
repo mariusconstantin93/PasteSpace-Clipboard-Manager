@@ -13,25 +13,24 @@ PasteSpace requires a compatible Mac running a supported version of macOS. Certa
 ### 3. Free and Pro Tiers
 PasteSpace is available in two tiers:
 
-• Free Tier: Includes clipboard history (limited to 20 items), pinned items (limited to 5), and basic clipboard management features.
-
-• Pro Tier: A one-time, non-consumable in-app purchase that unlocks unlimited history, unlimited pins, Vault Mode (encrypted storage with biometric protection), Quick Look previews, OCR text extraction from images, Data Magic transformations, App Blocklist, and Ephemeral Mode.
+- Free Tier: Includes clipboard history (limited to 20 items), pinned items (limited to 5), and basic clipboard management features.
+- Pro Tier: A one-time, non-consumable in-app purchase that unlocks unlimited history, unlimited pins, Vault Mode (encrypted storage with biometric protection), Quick Look previews, OCR text extraction from images, Data Magic transformations, App Blocklist, and Ephemeral Mode.
 
 The Pro upgrade is a lifetime purchase — there are no subscriptions or recurring charges.
 
 ### 4. In-App Purchases
 The Pro upgrade is processed through the Apple App Store using StoreKit. All purchases are subject to Apple's terms and conditions. Prices are displayed in your local currency at the time of purchase.
 
-• Payment is charged to your Apple ID account at confirmation of purchase.
-• The purchase is non-consumable and can be restored on any Mac signed in with the same Apple ID.
-• Refunds are handled exclusively by Apple in accordance with their refund policy. To request a refund, visit reportaproblem.apple.com.
+- Payment is charged to your Apple ID account at confirmation of purchase.
+- The purchase is non-consumable and can be restored on any Mac signed in with the same Apple ID.
+- Refunds are handled exclusively by Apple in accordance with their refund policy. To request a refund, visit reportaproblem.apple.com.
 
 ### 5. Vault Mode & Encryption
 Vault Mode (Pro feature) provides local encryption for sensitive clipboard content using AES-256-GCM via Apple's CryptoKit framework. The encryption key is stored in your device's Keychain, backed by the Secure Enclave on Apple Silicon Macs.
 
-• PasteSpace does not have access to your encryption key outside of your device.
-• If you lose access to your device or reset your Keychain, encrypted Vault data cannot be recovered. PasteSpace and its developer are not responsible for data loss resulting from Keychain resets, device loss, or operating system reinstallation.
-• Vault Mode requires biometric authentication (Touch ID) or your device password to reveal protected content.
+- PasteSpace does not have access to your encryption key outside of your device.
+- If you lose access to your device or reset your Keychain, encrypted Vault data cannot be recovered. PasteSpace and its developer are not responsible for data loss resulting from Keychain resets, device loss, or operating system reinstallation.
+- Vault Mode requires biometric authentication (Touch ID) or your device password to reveal protected content.
 
 ### 6. Biometric Authentication
 PasteSpace uses Apple's LocalAuthentication framework to provide Touch ID or device password authentication for Vault features. Biometric data is handled entirely by macOS — PasteSpace never accesses, stores, or transmits your fingerprint or biometric information.
@@ -80,4 +79,5 @@ We may update these Terms of Use from time to time. Continued use of the App aft
 These terms are governed by and construed in accordance with the laws of Romania, without regard to conflict of law principles.
 
 ### 18. Contact
-If you have questions about these Terms of Use, you can contact us at: mariuscpopescu@icloud.com
+If you have questions about these Terms of Use, you can contact us at:
+mariuscpopescu@icloud.com
