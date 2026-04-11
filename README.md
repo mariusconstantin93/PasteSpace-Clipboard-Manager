@@ -322,7 +322,7 @@ PasteSpace is a native macOS application built with SwiftUI. It respects your sy
 
 ## Legal
 
-- [Terms of Use](https://pastespace.app/terms) · [Privacy Policy](https://pastespace.app/privacy)
+- [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms) · [Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy)
 - **© 2026 Marius Constantin Popescu. All rights reserved.**
 
 ---
