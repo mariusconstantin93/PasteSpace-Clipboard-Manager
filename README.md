@@ -44,6 +44,47 @@ No switching apps. No reopening documents.
 
 ---
 
+## Screenshots
+
+<p align="center">
+  <img src="screenshots/app.jpg" alt="PasteSpace clipboard history in the menu bar" width="640" />
+  <br/>
+  <em>Your entire clipboard history, one keystroke away.</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/app_ocr.jpg" alt="OCR text extraction from images" width="640" />
+  <br/>
+  <em>Copy a screenshot — PasteSpace extracts the text automatically so you can search inside images.</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/app_vault.jpg" alt="Vault Mode with Touch ID" width="640" />
+  <br/>
+  <em>Vault Mode auto-encrypts sensitive data with AES-256-GCM. Reveal with Touch ID.</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/app_data_magic.jpg" alt="Data Magic instant transformations" width="640" />
+  <br/>
+  <em>Data Magic — 30+ one-tap transformations for JSON, colors, dates, Base64, and more.</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/app_settings_1.jpg" alt="PasteSpace settings — general preferences" width="640" />
+  <br/>
+  <em>Fine-tune PasteSpace to your workflow — shortcuts, history limits, and privacy options.</em>
+</p>
+
+<p align="center">
+  <img src="screenshots/app_settings_2.jpg" alt="PasteSpace settings — advanced preferences" width="640" />
+  <br/>
+  <em>Advanced controls: App Blocklist, Ephemeral Mode, and Pro upgrade.</em>
+</p>
+
+---
+
+
 ## Features
 
 ### 📋 Clipboard History
