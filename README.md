@@ -413,4 +413,3 @@ keywords:
   - menu bar app
   - privacy-focused
   - macOS app
----
