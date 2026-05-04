@@ -1,4 +1,3 @@
----
 title: "PasteSpace — Clipboard Manager"
 description: "PasteSpace is a secure clipboard history app for macOS with Vault Mode, OCR, Data Magic, and zero data collection."
 keywords:
