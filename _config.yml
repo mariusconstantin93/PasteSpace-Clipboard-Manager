@@ -1,13 +1,7 @@
 theme: minima
 
-title: "PasteSpace — Clipboard Manager"
-description: "PasteSpace is a secure clipboard history app for macOS with Vault Mode, OCR, Data Magic, and zero data collection."
 url: "https://mariusconstantin93.github.io"
 baseurl: "/PasteSpace-Clipboard-Manager"
 
 plugins:
   - jekyll-seo-tag
-
-author:
-  name: "Marius Constantin Popescu"
-  email: "mariuscpopescu@icloud.com"
