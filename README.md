@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "PasteSpace — Clipboard Manager"
-description: "PasteSpace is a secure clipboard history app for macOS with Vault Mode, OCR, Data Magic, and zero data collection."
-keywords: "PasteSpace, clipboard manager, macOS clipboard history, secure clipboard manager, Vault Mode, OCR, Data Magic, menu bar app, privacy-focused, macOS app"
+description: "PasteSpace is a secure clipboard history app for macOS with Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, and zero data collection."
+keywords: "PasteSpace, clipboard manager, macOS clipboard history, secure clipboard manager, Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, drag and drop clipboard, menu bar app, privacy-focused, macOS app"
 permalink: /
 ---
 
@@ -14,7 +14,7 @@ permalink: /
 
 <p align="center">
   <img src="https://img.shields.io/badge/platform-macOS%2014%2B-blue" alt="macOS 14+" />
-  <img src="https://img.shields.io/badge/swift-5.9-orange" alt="Swift 5.9" />
+  <img src="https://img.shields.io/badge/swift-6.0-orange" alt="Swift 6.0" />
   <img src="https://img.shields.io/badge/UI-SwiftUI-purple" alt="SwiftUI" />
   <img src="https://img.shields.io/badge/encryption-AES--256--GCM-green" alt="AES-256-GCM" />
   <img src="https://img.shields.io/badge/data%20collected-zero-brightgreen" alt="Zero Data Collection" />
@@ -91,6 +91,26 @@ No switching apps. No reopening documents.
     <img src="screenshots/app_data_magic.jpg" alt="Data Magic instant transformations" width="640" />
     <br/>
     <em>Data Magic — 30+ one-tap transformations for JSON, colors, dates, Base64, and more.</em>
+  </p>
+</details>
+
+<details>
+  <summary><strong>✏️ Quick Look Text Editor</strong> — full rich-text editing from your clipboard</summary>
+  <br/>
+  <p align="center">
+    <img src="screenshots/app_quicklook_editor.jpg" alt="Quick Look rich-text editor" width="640" />
+    <br/>
+    <em>Edit, format, and save clipboard text directly inside PasteSpace — no external app needed.</em>
+  </p>
+</details>
+
+<details>
+  <summary><strong>📷 QR Code Generator</strong> — turn any copied text into a scannable QR code</summary>
+  <br/>
+  <p align="center">
+    <img src="screenshots/app_qr.jpg" alt="QR code generator" width="640" />
+    <br/>
+    <em>Instant QR code for any URL, contact, Wi-Fi credential, or text — generated locally, offline.</em>
   </p>
 </details>
 
@@ -211,9 +231,59 @@ PasteSpace detects the format of the data you copied and offers **one-tap transf
 
 ---
 
-### 👁 Quick Look
+### 👁 Quick Look — Full Rich-Text Editor
 
-Preview the full content of any item — text, images, PDFs, files — in a floating panel without leaving your current application. For images with OCR, you can view the extracted text and select specific parts to copy.
+Quick Look has evolved from a simple viewer into a **complete rich-text editing environment**. Open any clipboard item in a floating panel and edit it before you paste it anywhere.
+
+**Real-world example:**
+> You copied a paragraph from a report that needs light editing before you paste it into a presentation. Instead of pasting it into a document, making changes, re-copying, and then pasting again, you open Quick Look, edit directly, and paste the final version in one step.
+
+**What you can do in Quick Look:**
+
+- **Read mode** — view the full content of any text, image, file, or Vault item in a floating panel.
+- **Edit mode** — click **Edit** to enter a full rich-text editor:
+  - Change **font family**, **size**, **bold**, **italic**, **underline**, **strikethrough**
+  - Apply **text colour** from a 27-colour palette
+  - Apply **highlight colour** with the same palette
+  - Adjust **paragraph alignment** (left, center, right, justified)
+  - Add **bullet lists** and **numbered lists**
+  - Full **undo / redo** support
+- **Smart plain-text preservation** — if the original item was plain text, characters you *didn't* touch are pasted to the destination using that app's own font and colour (white on a dark Pages page, body font in Word), while only the characters you actually formatted carry your explicit styling.
+- **Save** — changes are saved back to your clipboard history so the edited version is available for future pastes.
+- **Copy Edited** — copies the edited content to the clipboard instantly.
+- For **images**, Quick Look shows the full image alongside the OCR-extracted text.
+- For **Vault items**, Quick Look opens only after Touch ID authentication and auto-masks the item when the panel is closed.
+
+---
+
+### 📷 QR Code Generator
+
+Turn any copied text into a **scannable QR code** in one tap — without opening a browser, visiting a website, or installing a separate tool.
+
+**Real-world examples:**
+> **Sharing a Wi-Fi password:** Copy the password → click 📷 → show the QR code to a guest. Their phone scans it and connects instantly.
+> **Sharing a link:** Copy a URL → click 📷 → a QR code is generated. Scan it with your phone to open on mobile.
+> **Sharing contact info:** Copy your phone number or email → click 📷 → the other person scans it instead of typing it out.
+
+- **Completely offline** — generated on-device using Apple's CoreImage framework. No data is sent anywhere.
+- Works for any copied text: **URLs, emails, phone numbers, Wi-Fi credentials, plain text, addresses**.
+- Displayed in a floating panel that stays on screen while you work.
+
+---
+
+### 🖱️ Drag & Drop Copy
+
+You don't need to click the copy button. You can **drag any item** directly from your PasteSpace history into any app that accepts drops.
+
+**Real-world examples:**
+> **Dragging a file:** Drag a file item from PasteSpace history directly into a Finder window, Mail compose window, or Slack chat.
+> **Dragging text:** Drag a text snippet from history into any text field — it's inserted at the drop point.
+> **Dragging an image:** Drag an image from history directly into a Keynote slide, Pages document, or image well.
+
+- Works for **text, images, URLs, and files**.
+- **Vault items** require Touch ID authentication before the content is handed to the destination app — the decrypted data is written only after you authenticate.
+
+---
 
 ---
 
@@ -240,7 +310,9 @@ PasteSpace is **free to use** with generous limits. Pro removes the capacity lim
 | Vault Mode | 2 items | **Unlimited** + auto-detection |
 | OCR | Latest image | **Every image** |
 | Data Magic | Latest text | **Every text** |
-| Quick Look | Latest text + image | **Everything** |
+| Quick Look + Editor | Latest text + image | **Everything** |
+| QR Code | Latest text | **Every text** |
+| Drag & Drop | ✅ | ✅ |
 | App Blocklist | 1 app | **Unlimited** |
 | Ephemeral Mode | — | ✅ |
 | Search, copy, pin, delete, shortcut | ✅ | ✅ |
