@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "PasteSpace — Clipboard Manager"
-description: "PasteSpace is a secure clipboard history app for macOS with Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, and zero data collection."
-keywords: "PasteSpace, clipboard manager, macOS clipboard history, secure clipboard manager, Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, drag and drop clipboard, menu bar app, privacy-focused, macOS app"
+description: "PasteSpace is a secure clipboard history app for macOS with Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, rich-text clipboard, and zero data collection."
+keywords: "PasteSpace, clipboard manager, macOS clipboard history, secure clipboard manager, Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, drag and drop clipboard, rich text clipboard, paste as plain text, menu bar app, privacy-focused, macOS app"
 permalink: /
 ---
 
@@ -150,6 +150,8 @@ Every piece of text, every image, and every file you copy is kept in a searchabl
 - **Pin items** — keep your most-used snippets, templates, or credentials at the top.
 - **Source tracking** — every item shows the application it was copied from (Safari, Xcode, Notes, etc.).
 - **Global shortcut** (`⌥⇧V`) — open PasteSpace from any app without touching the mouse.
+- **Rich-text fidelity** — PasteSpace captures formatted text exactly as it appeared in the source app — fonts, sizes, colours, bold, italic, and all other styling are preserved. When you copy the item back to the clipboard, it pastes into the destination with the same formatting it had when it was originally copied.
+- **Paste as plain text** — a toggle in Settings lets you force every paste to strip all formatting, regardless of how the original was styled. Useful when you want to paste into an app and match its own font and layout instead of inheriting the source formatting.
 
 ---
 
@@ -287,6 +289,19 @@ You don't need to click the copy button. You can **drag any item** directly from
 
 ---
 
+### ⚙️ Paste as Plain Text
+
+A toggle in **Settings → Paste as Plain Text** strips all formatting from every item at the moment of pasting, regardless of how it was originally captured.
+
+**When this is useful:**
+> You're writing in a note-taking app and you want everything you paste to match your document's existing font and size — no bold headings, no colour overrides, no size jumps from a webpage you copied text from. Turn on Paste as Plain Text once, and from that point on every paste is clean.
+
+- Works for **all text items** — plain text, rich text, URLs, and formatted clipboard content.
+- The item in history is **not modified** — the full formatting is still stored and visible in Quick Look. Only the clipboard write is stripped.
+- Can be toggled on and off at any time from Settings without restarting the app.
+
+---
+
 ### 🛡️ App Blocklist
 
 Prevent PasteSpace from storing sensitive data from specific applications. If you add your banking app or a medical software to the blocklist, anything copied from it is completely ignored by PasteSpace.
@@ -315,6 +330,8 @@ PasteSpace is **free to use** with generous limits. Pro removes the capacity lim
 | Drag & Drop | ✅ | ✅ |
 | App Blocklist | 1 app | **Unlimited** |
 | Ephemeral Mode | — | ✅ |
+| Rich-text fidelity | ✅ | ✅ |
+| Paste as Plain Text (setting) | ✅ | ✅ |
 | Search, copy, pin, delete, shortcut | ✅ | ✅ |
 | Future updates | ✅ | ✅ |
 
