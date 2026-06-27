@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "PasteSpace — Clipboard Manager"
-description: "PasteSpace is a secure clipboard history app for macOS with Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, rich-text clipboard, and zero data collection."
-keywords: "PasteSpace, clipboard manager, macOS clipboard history, secure clipboard manager, Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, drag and drop clipboard, rich text clipboard, paste as plain text, menu bar app, privacy-focused, macOS app"
+description: "PasteSpace is a secure clipboard history app for macOS 14+ with Vault Mode, OCR, Data Magic, a full Quick Look text editor, QR code generator, drag and drop, rich-text clipboard, plain-text controls, and zero data collection."
+keywords: "PasteSpace, clipboard manager, macOS clipboard history, macOS 27, secure clipboard manager, Vault Mode, OCR, Data Magic, Quick Look text editor, QR code generator, drag and drop clipboard, multi-file clipboard, rich text clipboard, copy as plain text, paste as plain text, menu bar app, privacy-focused, macOS app"
 permalink: /
 ---
 
@@ -14,6 +14,7 @@ permalink: /
 
 <p align="center">
   <img src="https://img.shields.io/badge/platform-macOS%2014%2B-blue" alt="macOS 14+" />
+  <img src="https://img.shields.io/badge/tested-macOS%2027%20beta-informational" alt="Tested on macOS 27 beta" />
   <img src="https://img.shields.io/badge/swift-6.0-orange" alt="Swift 6.0" />
   <img src="https://img.shields.io/badge/UI-SwiftUI-purple" alt="SwiftUI" />
   <img src="https://img.shields.io/badge/encryption-AES--256--GCM-green" alt="AES-256-GCM" />
@@ -49,6 +50,22 @@ PasteSpace lives in your **menu bar** as a small clipboard icon (📋). Every ti
 4. Press **Enter** — it's copied and ready to paste.
 
 No switching apps. No reopening documents.
+
+---
+
+## What's New in PasteSpace 2.0
+
+PasteSpace 2.0 is a major update focused on richer clipboard fidelity, a more consistent visual design, and smoother workflows across current and upcoming macOS versions.
+
+- **macOS 27 beta compatibility** — menu bar behaviour, status-item sizing, popovers, and Quick Look flows were adjusted for the new macOS 27 menu bar and windowing changes while keeping compatibility with macOS 14, 15, and later.
+- **Redesigned history UI** — the history list now uses a unified visual language with standardized monochrome SF Symbols, consistent typography, improved spacing, clearer action buttons, and better content hierarchy for text, links, files, folders, archives, apps, disk images, media, and file groups.
+- **Rich-text clipboard fidelity** — formatted text is now captured and pasted with its original formatting instead of being reduced to plain text.
+- **Quick Look text editor** — Quick Look is no longer just a viewer; text items can now be edited, formatted, highlighted, saved, and copied directly from the floating panel.
+- **Plain-text controls** — new settings let you always capture formatted text as plain text or always paste text as plain text. Dedicated plain-text paste buttons are also available in history and Quick Look for one-off clean pastes.
+- **QR Code Generator** — generate offline QR codes for copied text, links, contact details, Wi-Fi credentials, and other snippets.
+- **Drag & Drop Copy** — drag text, links, images, files, and groups of files directly from history into other apps. Vault-protected items authenticate before data is delivered.
+- **Safer history management** — non-Vault deletion now asks for confirmation, while Vault deletion remains protected by Touch ID or device password.
+- **Stronger Ephemeral Mode** — ephemeral cleanup now takes effect when PasteSpace quits, including before restart or shutdown.
 
 ---
 
@@ -139,6 +156,17 @@ No switching apps. No reopening documents.
 
 ## Features
 
+### ✨ Unified macOS Design
+
+PasteSpace 2.0 introduces a refreshed interface built around clarity and consistency. The history list uses a unified icon system, consistent typography, and rearranged controls so each item is easier to scan, understand, and act on.
+
+- **Standardized visual language** — item thumbnails use monochrome SF Symbols for text, rich text, links, folders, PDFs, archives, apps, disk images, audio, video, images, and file groups.
+- **Improved readability** — text, metadata, badges, and action buttons are arranged to make the copied content easier to identify at a glance.
+- **Consistent controls** — Quick Look, Data Magic, QR Code, Vault, pin, delete, open, and plain-text actions use a cleaner shared style across the entire history.
+- **System-aware appearance** — icons and controls adapt correctly to Light and Dark mode.
+
+---
+
 ### 📋 Clipboard History
 
 Every piece of text, every image, and every file you copy is kept in a searchable, scrollable list.
@@ -150,8 +178,9 @@ Every piece of text, every image, and every file you copy is kept in a searchabl
 - **Pin items** — keep your most-used snippets, templates, or credentials at the top.
 - **Source tracking** — every item shows the application it was copied from (Safari, Xcode, Notes, etc.).
 - **Global shortcut** (`⌥⇧V`) — open PasteSpace from any app without touching the mouse.
-- **Rich-text fidelity** — PasteSpace captures formatted text exactly as it appeared in the source app — fonts, sizes, colours, bold, italic, and all other styling are preserved. When you copy the item back to the clipboard, it pastes into the destination with the same formatting it had when it was originally copied.
-- **Paste as plain text** — a toggle in Settings lets you force every paste to strip all formatting, regardless of how the original was styled. Useful when you want to paste into an app and match its own font and layout instead of inheriting the source formatting.
+- **Rich-text fidelity** — formatted text is captured exactly as it appeared in the source app — fonts, sizes, colours, bold, italic, highlights, and styling are preserved. Earlier versions stored every text item as plain text; PasteSpace now keeps both plain and formatted text correctly.
+- **Plain-text controls** — choose whether formatted text should be captured as plain text, pasted as plain text, or pasted normally with formatting. You can set this globally in Settings or use dedicated one-off plain-text paste buttons.
+- **Multi-file groups** — when you copy several files at once, PasteSpace keeps them together as one history item, shows the group clearly, and can copy or drag them back as a group.
 
 ---
 
@@ -235,7 +264,7 @@ PasteSpace detects the format of the data you copied and offers **one-tap transf
 
 ### 👁 Quick Look — Full Rich-Text Editor
 
-Quick Look has evolved from a simple viewer into a **complete rich-text editing environment**. Open any clipboard item in a floating panel and edit it before you paste it anywhere.
+Quick Look has evolved from a simple viewer into a **complete rich-text editing environment**. Open a text item in a floating panel, edit it, format it, save it back to history, or copy the edited version immediately.
 
 **Real-world example:**
 > You copied a paragraph from a report that needs light editing before you paste it into a presentation. Instead of pasting it into a document, making changes, re-copying, and then pasting again, you open Quick Look, edit directly, and paste the final version in one step.
@@ -247,12 +276,14 @@ Quick Look has evolved from a simple viewer into a **complete rich-text editing 
   - Change **font family**, **size**, **bold**, **italic**, **underline**, **strikethrough**
   - Apply **text colour** from a 27-colour palette
   - Apply **highlight colour** with the same palette
+  - Clear formatting from selected characters
   - Adjust **paragraph alignment** (left, center, right, justified)
   - Add **bullet lists** and **numbered lists**
   - Full **undo / redo** support
 - **Smart plain-text preservation** — if the original item was plain text, characters you *didn't* touch are pasted to the destination using that app's own font and colour (white on a dark Pages page, body font in Word), while only the characters you actually formatted carry your explicit styling.
 - **Save** — changes are saved back to your clipboard history so the edited version is available for future pastes.
 - **Copy Edited** — copies the edited content to the clipboard instantly.
+- **Paste as plain text from Quick Look** — use the dedicated plain-text action when you want the edited or previewed text to match the destination app instead of preserving formatting.
 - For **images**, Quick Look shows the full image alongside the OCR-extracted text.
 - For **Vault items**, Quick Look opens only after Touch ID authentication and auto-masks the item when the panel is closed.
 
@@ -268,37 +299,40 @@ Turn any copied text into a **scannable QR code** in one tap — without opening
 > **Sharing contact info:** Copy your phone number or email → click 📷 → the other person scans it instead of typing it out.
 
 - **Completely offline** — generated on-device using Apple's CoreImage framework. No data is sent anywhere.
-- Works for any copied text: **URLs, emails, phone numbers, Wi-Fi credentials, plain text, addresses**.
+- Works for any copied text: **links, URLs, emails, phone numbers, Wi-Fi credentials, plain text, addresses**, and other snippets.
 - Displayed in a floating panel that stays on screen while you work.
 
 ---
 
 ### 🖱️ Drag & Drop Copy
 
-You don't need to click the copy button. You can **drag any item** directly from your PasteSpace history into any app that accepts drops.
+You don't need to click the copy button. You can **drag items directly from your PasteSpace history** into apps that accept drops.
 
 **Real-world examples:**
-> **Dragging a file:** Drag a file item from PasteSpace history directly into a Finder window, Mail compose window, or Slack chat.
+> **Dragging files:** Drag one file — or a group of files copied together — from PasteSpace into Finder, Mail, Slack, or another file destination.
 > **Dragging text:** Drag a text snippet from history into any text field — it's inserted at the drop point.
-> **Dragging an image:** Drag an image from history directly into a Keynote slide, Pages document, or image well.
+> **Dragging an image or link:** Drag an image into a document, or a link into a browser, note, or message.
 
-- Works for **text, images, URLs, and files**.
-- **Vault items** require Touch ID authentication before the content is handed to the destination app — the decrypted data is written only after you authenticate.
+- Works for **text, images, URLs, single files, and multi-file groups**.
+- File groups are kept together in history and dragged back as real files, not shortcuts.
+- **Vault items** require Touch ID authentication before the content is handed to the destination app — the decrypted data is delivered only after you authenticate.
 
 ---
 
----
+### ⚙️ Plain Text Controls
 
-### ⚙️ Paste as Plain Text
+PasteSpace gives you full control over when formatting is kept and when it is stripped.
 
-A toggle in **Settings → Paste as Plain Text** strips all formatting from every item at the moment of pasting, regardless of how it was originally captured.
+**Available options:**
+
+- **Always copy as plain text** — formatted text will only be captured as plain text. This is useful if you want your history to stay clean and style-free.
+- **Always paste as plain text** — formatting will be ignored and the text will be pasted as plain text. The stored history item is not modified.
+- **One-off plain-text paste buttons** — dedicated buttons in the history row and in Quick Look let you paste a specific text item as plain text without changing your global settings.
 
 **When this is useful:**
-> You're writing in a note-taking app and you want everything you paste to match your document's existing font and size — no bold headings, no colour overrides, no size jumps from a webpage you copied text from. Turn on Paste as Plain Text once, and from that point on every paste is clean.
+> You're writing in a note-taking app and want every paste to match your document's existing font and size — no bold headings, colour overrides, or size jumps from a webpage or document you copied from.
 
-- Works for **all text items** — plain text, rich text, URLs, and formatted clipboard content.
-- The item in history is **not modified** — the full formatting is still stored and visible in Quick Look. Only the clipboard write is stripped.
-- Can be toggled on and off at any time from Settings without restarting the app.
+These controls work for **plain text, rich text, links, and formatted clipboard content**, and can be toggled at any time without restarting the app.
 
 ---
 
@@ -308,9 +342,15 @@ Prevent PasteSpace from storing sensitive data from specific applications. If yo
 
 ---
 
+### 🗑️ Safer Deletion
+
+PasteSpace now asks for confirmation before deleting standard history items. Vault item deletion remains protected by Touch ID or device password, so sensitive entries cannot be removed accidentally without authentication.
+
+---
+
 ### ⏳ Ephemeral Mode
 
-When activated, your standard clipboard history is **automatically wiped when your Mac restarts or shuts down**. Vault items and pinned items are preserved, ensuring a clean slate while keeping your most important data secure.
+When activated, your standard clipboard history is **automatically wiped when PasteSpace quits**, including when the app is closed before a macOS restart or shutdown. Vault items are always preserved, and pinned items can also be preserved depending on your setting, ensuring a clean slate while keeping important data secure.
 
 ---
 
@@ -327,12 +367,13 @@ PasteSpace is **free to use** with generous limits. Pro removes the capacity lim
 | Data Magic | Latest text | **Every text** |
 | Quick Look + Editor | Latest text + image | **Everything** |
 | QR Code | Latest text | **Every text** |
-| Drag & Drop | ✅ | ✅ |
+| Drag & Drop, including file groups | ✅ | ✅ |
 | App Blocklist | 1 app | **Unlimited** |
 | Ephemeral Mode | — | ✅ |
 | Rich-text fidelity | ✅ | ✅ |
-| Paste as Plain Text (setting) | ✅ | ✅ |
-| Search, copy, pin, delete, shortcut | ✅ | ✅ |
+| Always Copy/Paste as Plain Text | ✅ | ✅ |
+| Dedicated plain-text paste buttons | ✅ | ✅ |
+| Search, copy, pin, delete confirmation, shortcut | ✅ | ✅ |
 | Future updates | ✅ | ✅ |
 
 **One purchase. No subscription. Yours for life.**
@@ -350,7 +391,7 @@ PasteSpace is designed with strict privacy principles and **collects zero data**
 | ✅ No cloud | Your data never leaves your Mac. |
 | ✅ No account | We don't require user accounts. |
 | ✅ No third-party SDKs | No external tracking code is included. |
-| ✅ No network calls | The only connection is to Apple's StoreKit for purchases. |
+| ✅ No network calls for core features | The only allowed connection is to Apple's StoreKit for purchases. |
 
 Everything is stored **locally** in the macOS **App Sandbox**. Your encryption key lives securely in the **Keychain**. There are no remote servers or databases.
 
@@ -409,7 +450,7 @@ PasteSpace is fully compliant with privacy frameworks like GDPR and CCPA by desi
 
 ## System Requirements
 
-- **macOS 14.0** (Sonoma) or later
+- **macOS 14.0** (Sonoma) or later — including compatibility work for macOS 27 beta
 - Any Mac (Intel or Apple Silicon)
 - Touch ID recommended for Vault Mode (device password works on all Macs)
 - Secure Enclave available on Apple Silicon (M1/M2/M3/M4) and T2 Macs for hardware-backed key storage
@@ -478,7 +519,7 @@ PasteSpace is fully compliant with privacy frameworks like GDPR and CCPA by desi
 
 ## Built for macOS
 
-PasteSpace is a native macOS application built with SwiftUI. It respects your system appearance, integrates natively with Touch ID, and sits efficiently in your menu bar using minimal resources.
+PasteSpace is a native macOS application built with SwiftUI. It respects your system appearance, integrates natively with Touch ID, and sits efficiently in your menu bar using minimal resources. The interface has been adjusted for macOS 14 through the current macOS 27 beta, including menu bar icon sizing, popover behaviour, and adaptive Light/Dark Mode icon rendering.
 
 ---
 
