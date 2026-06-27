@@ -40,7 +40,7 @@ You dig through your browser history, reopen documents, or scroll through messag
 
 ## How It Works
 
-PasteSpace lives in your **menu bar** as a small clipboard icon (`doc.on.clipboard`). Every time you press `⌘C`, PasteSpace captures your copied content and adds it to a searchable history.
+PasteSpace lives in your **menu bar** as a small clipboard icon (📋). Every time you press `⌘C`, PasteSpace captures your copied content and adds it to a searchable history.
 
 **Here's what using PasteSpace looks like:**
 
@@ -74,7 +74,7 @@ PasteSpace 2.0 is a major update focused on richer clipboard fidelity, a more co
 <p align="center"><em>Click each section to expand the screenshot.</em></p>
 
 <details open>
-  <summary><strong>Clipboard history</strong> — your entire clipboard, one keystroke away</summary>
+  <summary><strong>📋 Clipboard history</strong> — your entire clipboard, one keystroke away</summary>
   <br/>
   <p align="center">
     <img src="screenshots/app.jpg" alt="PasteSpace clipboard history in the menu bar" width="640" />
@@ -167,7 +167,7 @@ PasteSpace 2.0 introduces a refreshed interface built around clarity and consist
 
 ---
 
-### Clipboard History
+### 📋 Clipboard History
 
 Every piece of text, every image, and every file you copy is kept in a searchable, scrollable list.
 
@@ -462,11 +462,11 @@ PasteSpace is fully compliant with privacy frameworks like GDPR and CCPA by desi
 
 1. Search for **"PasteSpace"** on the Mac App Store.
 2. Download the app.
-3. PasteSpace will appear as a `doc.on.clipboard` icon in your menu bar.
+3. PasteSpace will appear as a 📋 icon in your menu bar.
 4. Click the icon to open — your clipboard history starts building immediately.
 
 **First launch:**
-- A small indicator will point to the clipboard icon in your menu bar.
+- A small indicator will point to the 📋 icon in your menu bar.
 - Click it to open PasteSpace.
 - Everything works out of the box with no configuration needed.
 - Press **⌥⇧V** from any app to open PasteSpace instantly.
