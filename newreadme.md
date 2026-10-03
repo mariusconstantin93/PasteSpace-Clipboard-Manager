@@ -40,6 +40,7 @@ permalink: /
 - [Your clipboard history](#history)
 - [Search, filters and sorting](#search)
 - [The Vault — how protection really works](#vault)
+- [Security architecture](#security)
 - [Text in images (OCR)](#ocr)
 - [Text inside documents](#documents)
 - [Quick Look and the text editor](#quick-look)
@@ -51,15 +52,13 @@ permalink: /
 - [App Blocklist](#blocklist)
 - [Ephemeral Mode](#ephemeral)
 - [Deleting and clearing](#deleting)
+- [Rating PasteSpace](#rating)
 - [Free vs. Pro](#free-vs-pro)
-- [System requirements and installation](#requirements)
-- [What's new in PasteSpace 3.0](#whats-new)
-- [Built for macOS](#built-for-macos)
-- [Security architecture](#security)
 - [Every setting, explained](#settings)
 - [Keyboard shortcuts](#shortcuts)
 - [Questions people ask](#faq)
-- [Rating PasteSpace](#rating)
+- [System requirements](#requirements)
+- [What's new in PasteSpace 3.0](#whats-new)
 - [Contact](#contact)
 
 ---
@@ -76,25 +75,27 @@ You copy a phone number, then a link, then a paragraph from a document. When you
 <a id="how-it-works"></a>
 ## How PasteSpace works
 
-PasteSpace lives in your **menu bar**. From the moment it starts, every time you copy something — with `⌘C`, a menu, or a right-click — it quietly adds that item to a history you can search, filter and reuse. There is no window to keep open and no Dock icon.
+**Copy the way you always do. PasteSpace remembers it all — and hands any of it back in seconds.**
 
-**A typical moment:**
+It lives in your menu bar: no window to keep open, no Dock icon, nothing to set up. Every time you copy — text, a link, an image, a file — PasteSpace adds it to a history you can search in an instant.
 
-1. You're writing an email and need the address a client sent you an hour ago.
-2. Press **⌥⇧V** (or your own shortcut). PasteSpace opens right under your pointer, with the pointer resting on your most recent copy.
-3. Type `Bucharest`. The address appears.
-4. Press **Return**. PasteSpace puts it on the clipboard, closes, and brings your email back to the front.
-5. Press **⌘V**.
+> **An hour ago, a client emailed you their address. Now you need it.**
+> Press **⌥⇧V** — PasteSpace opens right under your pointer. Type `Bucharest`. Press **Return**, then **⌘V**. Done, without leaving the email you're writing.
 
-**Why you press ⌘V yourself.** PasteSpace never types into other apps on your behalf. Faking a keystroke would require the macOS *Accessibility* permission — the permission that lets an app watch and control everything you do — and PasteSpace is designed never to need it. Choosing an item puts it on the clipboard and returns you to where you were; the paste stays yours.
+**Why it's different:**
 
-**Where it saves you time:**
+- **It finds things by what's inside them.** Search reads the words in your screenshots and — in Pro — inside your PDFs and documents, scanned ones included. You don't have to remember where something came from, only a word that was in it.
+- **It locks your secrets away by itself.** Card numbers, IBANs, passwords and API keys are recognised the moment you copy them and encrypted in the Vault, behind Touch ID. Not even PasteSpace's own search can see inside them.
+- **Nothing ever leaves your Mac.** No account, no cloud, no analytics, no tracking — every feature works offline. [Privacy →](#privacy)
+- **It never asks to control your Mac.** PasteSpace doesn't use the Accessibility permission, which would let it watch and control everything you do. It puts your item on the clipboard, brings back the app you were in, and steps aside — the ⌘V stays yours.
+- **It does more than paste.** Tidy a JSON response, convert a colour, strip the tracking from a link, edit a text before you paste it, turn it into a QR code, or drag it straight into another app.
+- **It stays out of your way.** It opens under your pointer, with the pointer already on your newest copy, and closes the moment you've picked something — or stays on top while you work.
 
-- **Filling in forms** — your IBAN, address, ID number or email, pinned once and a shortcut away every time after. Card numbers and IBANs are locked in the Vault automatically and pasted with Touch ID.
+**Where it saves you time every day:**
+
+- **Filling in forms** — your IBAN, address, ID number or email, pinned once and a shortcut away every time after. Card numbers and IBANs stay locked, and are pasted after a quick Touch ID.
 - **Research and writing** — copy quotes, links and figures as you read, then paste them one by one, or select several and paste them all at once.
-- **Finding a screenshot** — type a word that was *in* the image; PasteSpace reads the text in every screenshot you copy.
-- **Finding a document** *(Pro)* — search for a phrase and PasteSpace shows the PDF or Word file that contains it, scanned documents included.
-- **Writing code** — API tokens are locked the moment you copy them; Data Magic pretty-prints a JSON response, turns it into a Swift struct, or strips the tracking from a link.
+- **Writing code** — API tokens are locked the moment you copy them; a minified API response becomes readable JSON, or a Swift struct, in a couple of clicks.
 - **Answering the same questions** — pin your standard replies and your signature, adjust them in Quick Look, and paste them formatted or as plain text.
 
 **Opening PasteSpace:**
@@ -148,6 +149,8 @@ Whatever you copy as text, an image or a file, PasteSpace keeps:
 | **Passwords, card numbers, keys and other secrets** | Kept — but **encrypted in the Vault** and shown masked, whether PasteSpace recognised them or you locked them yourself ([Vault](#vault)). |
 
 Each item records **which app it came from** and **the date and time** you copied it.
+
+**A long history costs nothing.** PasteSpace draws only the items on screen and reads an image only when you use it, so the window opens instantly and scrolls smoothly however many screenshots and documents you keep.
 
 ### Copies that are handled differently
 
@@ -460,6 +463,43 @@ When you drag a locked item, PasteSpace promises the destination a file and writ
 
 ---
 
+<a id="security"></a>
+## Security architecture
+
+How the pieces fit together — everything inside one sandboxed app, on your Mac:
+
+```text
+┌──────────────────────────────────────────────────────────────┐
+│                 PasteSpace  (macOS App Sandbox)              │
+│                                                              │
+│  ┌──────────────┐   ┌──────────────────────────────────────┐ │
+│  │  Clipboard   │   │        Local SQLite database         │ │
+│  │  monitoring  │──▶│ • Ordinary items (text, files…)      │ │
+│  └──────┬───────┘   │ • Vault items: content, formatting,  │ │
+│         │           │   extracted & recognised text —      │ │
+│  ┌──────▼───────┐   │   all AES-256-GCM ciphertext         │ │
+│  │ Sensitivity  │   │ • Masked previews, keyed fingerprints│ │
+│  │  detector    │   │ • Search index — never Vault content │ │
+│  │ (on-device)  │   └──────────────────────────────────────┘ │
+│  └──────────────┘                                            │
+│  ┌──────────────┐   ┌──────────────────────────────────────┐ │
+│  │ Vision OCR   │   │  Vault key (256-bit)                 │ │
+│  │ (sandboxed   │   │ • macOS Keychain: this Mac only,     │ │
+│  │ helper),     │   │   available only while unlocked      │ │
+│  │ PDFKit       │   │ • Backup in the private app folder   │ │
+│  └──────────────┘   │ • Never leaves the Mac               │ │
+│  ┌──────────────┐   └──────────────────────────────────────┘ │
+│  │ StoreKit 2   │   ┌──────────────────────────────────────┐ │
+│  │ (purchases,  │   │ Touch ID / Mac password              │ │
+│  │ rating ask)  │   │ (LocalAuthentication, on-device)     │ │
+│  └──────────────┘   └──────────────────────────────────────┘ │
+│                                                              │
+│     ✗ No servers   ✗ No cloud   ✗ No analytics   ✗ No SDKs   │
+└──────────────────────────────────────────────────────────────┘
+```
+
+---
+
 <a id="ocr"></a>
 ## Text in images (OCR)
 
@@ -715,6 +755,22 @@ Deleted items can't be recovered.
 
 ---
 
+<a id="rating"></a>
+## Rating PasteSpace
+
+**If PasteSpace saves you time, a rating on the App Store is the most helpful thing you can do in return.**
+
+- **It's how other people find PasteSpace.** The App Store leans heavily on ratings and reviews when it decides which apps to show. A few honest words from someone who uses PasteSpace every day count for more than anything written on this page.
+- **It's the only feedback PasteSpace gets.** PasteSpace collects no analytics and no usage data — that's a promise, not a setting. There is no dashboard showing which features you rely on or what gets in your way. Your review is how I find out, and it shapes what comes next.
+- **It keeps PasteSpace independent.** Every person who discovers PasteSpace through your review helps keep it what it is: no ads, no subscription, no data collection.
+- **It takes less than a minute.** Open Settings and click **Rate PasteSpace on the App Store** at the bottom — it takes you straight to the review page. The stars alone help; a sentence about what you use PasteSpace for helps even more.
+
+Now and then, macOS may also show its own rating request — three times at most, always at a quiet moment, and never again once you've used the Rate button in Settings. PasteSpace never sees your rating, and nothing about how you use it leaves your Mac.
+
+Something not working the way you'd expect? Write to me as well — I read every email, and a review that describes a problem helps get it fixed for everyone.
+
+---
+
 <a id="free-vs-pro"></a>
 ## Free vs. Pro
 
@@ -743,142 +799,6 @@ PasteSpace is **free to use**. Pro removes the limits and adds the power tools �
 Buy Pro inside the app (Settings, or any **PRO** badge), or directly from PasteSpace's page on the Mac App Store.
 
 **One purchase. No subscription. No account.**
-
----
-
-<a id="requirements"></a>
-## System requirements
-
-- **macOS 14 Sonoma** or later, including macOS 27 beta.
-- Any Mac — Apple silicon or Intel.
-- Touch ID recommended for the Vault; your Mac's login password works on every Mac.
-
-## Installation
-
-1. Search for **PasteSpace** on the Mac App Store, or [open it directly](https://apps.apple.com/ro/app/pastespace-clipboard-manager/id6762815491?mt=12).
-2. Download it. PasteSpace appears as an icon in your menu bar — a small pointer shows you where on first launch.
-3. Click the icon or press **⌥⇧V**. Your history starts building straight away; there's nothing to set up.
-
----
-
-<a id="whats-new"></a>
-## What's new in PasteSpace 3.0
-
-### A new design
-
-- **More room for what you copied.** Each item's text now spans the full width of the window. Its buttons sit in a slim bar underneath — faint until you point at the item — with the source app and the exact date and time of the copy on the right. A cleaner header, item counts on both sections, a discreet *✓ Copied* confirmation, and formatted text that stays readable in both Light and Dark mode.
-- **Open at mouse cursor** — the window opens right under your pointer, with the pointer already resting on your newest item.
-- **Always on top** — the window stays open above your other apps while you work, and copying an item no longer closes it.
-- **A switch for every feature.** Quick Look, Data Magic, QR codes, Share and reading text from documents can each be turned off in Settings — and a feature you turn off takes its button off every item, so your history shows only what you use. Also new in Settings: *Always copy as plain text*, and *Keep history for* 1, 7 or 30 days, or forever.
-- **Fold away Pinned** — one click on the *PINNED* header collapses the section, so your recent copies start right at the top.
-- **Arrange your history** by dragging items; the list scrolls by itself when you hold an item near its edge.
-- **Work with many items at once** — ⌘-click or ⌘Return to build a selection, ⇧-click for a range, then copy, pin, protect, reveal in Finder, delete or drag them all together.
-- **Faster and lighter** — PasteSpace opens instantly and scrolls smoothly even with large images and long web pages in your history, and text recognition gives back its memory as soon as it's done.
-
-### Finding things
-
-- **Filters and sorting** — narrow your history by 15 kinds of content (links, code, passwords, images, PDFs and other documents, archives, folders…), and in Pro by date, state and source app. Nine sort orders, including *Most used* and *Recently used*. Every active filter is shown as a removable chip, so nothing ever silently hides part of your history.
-- **Search inside documents** *(Pro)* — the PDFs, Word, RTF and OpenDocument files, web pages, and text and code files you copy are read, so searching for a word finds the file that contains it. Scanned PDFs are recognised page by page, and no document is too large to be read.
-- **Find in Quick Look** — press **⌘F** (or the 🔍 in the title bar) to search the text you're reading or editing, including the text of images and documents. Accents don't matter: *sarbatoare* finds *sărbătoare*.
-- **Item details** — an ⓘ next to each item shows what the row can't: the code language, the full link, a file's size and location, image dimensions, when it will be removed — and every time the item was copied.
-
-### Text in images and documents
-
-- **Text recognition in 30 languages**, detected automatically: English (US), French, Italian, German, Spanish, Portuguese (Brazil), Chinese (Simplified and Traditional), Cantonese (Simplified and Traditional), Korean, Japanese, Russian, Ukrainian, Thai, Vietnamese, Arabic, Najdi Arabic, Turkish, Indonesian, Czech, Danish, Dutch, Norwegian, Norwegian Bokmål, Norwegian Nynorsk, Malay, Polish, Romanian and Swedish. *(All 30 on macOS 26; earlier versions of macOS recognise fewer.)*
-- **Edit the text PasteSpace reads** — the text recognised in an image or extracted from a document can now be edited: correct it, and save it as a new item linked to the original. Images and documents open in Quick Look with *Preview* and *Extracted text* tabs.
-- **No size limits** — images and files of any size are recorded and read, and scanned PDFs are recognised in full, every page.
-- **Web pages keep their look** — fonts, colours and highlights come from the page's own style sheets, and nothing the page links to is ever downloaded.
-- **Text files in any encoding** — older national encodings such as Windows-1250, Windows-1251, Shift-JIS or Big5 are recognised automatically.
-
-### Quick Look and editing
-
-- **Undo and redo** in the text editor — toolbar buttons, or **⌘Z** and **⇧⌘Z**, for typing and formatting alike.
-- **Edits never overwrite** — saving creates a new version; *Original ⇄ Edited* lets you switch between them.
-- **Copy formatted / Copy as plain text** — wherever text is shown with formatting, for all of it or just the part you've selected.
-
-### Vault
-
-- **A stronger Vault** — locked items now hide completely from search; their formatting and any text read out of them are encrypted along with the content; previews reveal far less (a password shows only dots); copying a locked secret again no longer creates a readable copy; and a copy from a password manager is never stored unlocked. More kinds of secrets are recognised, with fewer false alarms. [How it works →](#vault)
-
-### Data Magic
-
-- **57 actions, 20 of them new** — code clean-up, *JSON → Swift struct* and *→ TypeScript interface*, *Remove Tracking from Link*, extracting the links, email addresses and phone numbers from a text, *Calculate Result*, *Add Up Numbers* and more. Data Magic now offers only the actions that fit what you copied, recognises code in about 30 programming languages, and its preview and 👁 button now work as they should.
-
-### Drag and drop
-
-- **Fixed throughout, and tested with every kind of item** — text, links, images, single files, groups of files, Vault items and multiple selections — into Finder, Apple's apps and third-party apps alike, including web-based ones such as Slack and WhatsApp. Files arrive as real files under their own names, a selection arrives whole, and several locked items need just one Touch ID.
-
-### Also new
-
-- **Share** any item through Messages, Mail, AirDrop, Notes and other services.
-- **Ephemeral Mode asks before quitting** — it shows what will be erased and what will be kept, and asks too when your Mac is about to log out, restart or shut down.
-- **Rate PasteSpace from inside the app** — from a card at the end of Settings, plus an occasional reminder at a quiet moment, which stops for good once you've used that card. [Why it matters →](#rating)
-- **Buy Pro straight from PasteSpace's App Store page**, as well as inside the app.
-- **A new app icon**, redrawn for current macOS.
-
----
-
-<a id="built-for-macos"></a>
-## Built for macOS
-
-PasteSpace is a native macOS app built with SwiftUI and AppKit. It follows your Light or Dark appearance, uses Touch ID through macOS itself, and sits in your menu bar using very little memory or energy. It has been adapted for every macOS version from 14 to the current macOS 27 beta, including the new menu bar and windowing behaviour.
-
-**Fast with a long history.** PasteSpace builds only the items you can see, so the window opens instantly and scrolls smoothly however long your history grows:
-
-- **Images are fetched only when you use them** — to paste, drag, share or open them in Quick Look. Hundreds of large screenshots in your history cost the list nothing, and an image's dimensions and size are read in the background as its row comes into view.
-- **Long formatted texts** — a whole web page copied from Safari, say — show a short preview in their row, prepared in the background, while the full text waits in Quick Look.
-- **Files are checked in the background** — whether each one still exists or has moved to the Trash — so a folder full of file items never holds up scrolling.
-- **Text recognition runs in a separate helper** that quits 30 seconds after its last job, taking the roughly 100 MB that recognition needs with it.
-- Documents are read in the background, so even a scan of hundreds of pages never slows the window down.
-
----
-
-<a id="security"></a>
-## Security architecture
-
-```text
-┌──────────────────────────────────────────────────────────────┐
-│                 PasteSpace  (macOS App Sandbox)              │
-│                                                              │
-│  ┌──────────────┐   ┌──────────────────────────────────────┐ │
-│  │  Clipboard   │   │        Local SQLite database         │ │
-│  │  monitoring  │──▶│ • Ordinary items (text, files…)      │ │
-│  └──────┬───────┘   │ • Vault items: content, formatting,  │ │
-│         │           │   extracted & recognised text —      │ │
-│  ┌──────▼───────┐   │   all AES-256-GCM ciphertext         │ │
-│  │ Sensitivity  │   │ • Masked previews, keyed fingerprints│ │
-│  │  detector    │   │ • Search index — never Vault content │ │
-│  │ (on-device)  │   └──────────────────────────────────────┘ │
-│  └──────────────┘                                            │
-│  ┌──────────────┐   ┌──────────────────────────────────────┐ │
-│  │ Vision OCR,  │   │  Vault key (256-bit)                 │ │
-│  │ PDFKit       │   │ • macOS Keychain: this Mac only,     │ │
-│  │ (on-device)  │   │   available only while unlocked      │ │
-│  └──────────────┘   │ • Backup in the private app folder   │ │
-│                     │ • Never leaves the Mac               │ │
-│  ┌──────────────┐   └──────────────────────────────────────┘ │
-│  │ StoreKit 2   │   ┌──────────────────────────────────────┐ │
-│  │ (purchases,  │   │ Touch ID / Mac password              │ │
-│  │ rating ask)  │   │ (LocalAuthentication, on-device)     │ │
-│  └──────────────┘   └──────────────────────────────────────┘ │
-│                                                              │
-│     ✗ No servers   ✗ No cloud   ✗ No analytics   ✗ No SDKs  │
-└──────────────────────────────────────────────────────────────┘
-```
-
-| Component | Technology |
-|---|---|
-| Encryption | AES-256-GCM via Apple CryptoKit |
-| Key storage | macOS Keychain (this device only, available when unlocked), with a backup in the sandboxed app folder |
-| Vault fingerprints | HMAC-SHA256 under a key derived from the Vault key |
-| Authentication | Touch ID or device password via LocalAuthentication |
-| Text recognition | Apple Vision, in a separate sandboxed helper with no network or file access, which quits when idle |
-| Document reading | Apple PDFKit and AppKit document readers |
-| Database | SQLite via GRDB.swift, with a full-text search index |
-| In-app purchase | StoreKit 2 with on-device verification |
-| Interface | SwiftUI and AppKit, native macOS |
-| Paste | Clipboard only — no simulated keystrokes, no Accessibility permission |
-| Export compliance | `ITSAppUsesNonExemptEncryption = false` (local data protection only) |
 
 ---
 
@@ -943,7 +863,7 @@ At the end of Settings, **Rate PasteSpace on the App Store** opens PasteSpace's 
 ## Questions people ask
 
 **Why do I have to press ⌘V myself?**
-Pasting for you would require the macOS Accessibility permission, which lets an app observe and control everything on your Mac. PasteSpace is built never to need it. [More](#how-it-works).
+Pasting for you would require the macOS Accessibility permission, which lets an app observe and control everything on your Mac. PasteSpace is built never to need it: choosing an item puts it on the clipboard and brings back the app you were in, so all that's left is ⌘V — and the paste stays yours.
 
 **I copied a password and it wasn't locked.**
 It probably didn't meet the password rule — one word of 8–64 characters with an uppercase letter, a lowercase letter, a digit and a symbol. Lock it with 🔒. In the free version, also check whether your Vault already holds 2 items. (A password copied from a password manager is never stored unlocked — when the Vault is full, it isn't recorded at all.)
@@ -977,19 +897,85 @@ Nothing — it simply stops being erased when PasteSpace quits.
 
 ---
 
-<a id="rating"></a>
-## Rating PasteSpace
+<a id="requirements"></a>
+## System requirements
 
-**If PasteSpace saves you time, a rating on the App Store is the most helpful thing you can do in return.**
+- **macOS 14 Sonoma** or later, including macOS 27 beta.
+- Any Mac — Apple silicon or Intel.
+- Touch ID recommended for the Vault; your Mac's login password works on every Mac.
 
-- **It's how other people find PasteSpace.** The App Store leans heavily on ratings and reviews when it decides which apps to show. A few honest words from someone who uses PasteSpace every day count for more than anything written on this page.
-- **It's the only feedback PasteSpace gets.** PasteSpace collects no analytics and no usage data — that's a promise, not a setting. There is no dashboard showing which features you rely on or what gets in your way. Your review is how I find out, and it shapes what comes next.
-- **It keeps PasteSpace independent.** Every person who discovers PasteSpace through your review helps keep it what it is: no ads, no subscription, no data collection.
-- **It takes less than a minute.** Open Settings and click **Rate PasteSpace on the App Store** at the bottom — it takes you straight to the review page. The stars alone help; a sentence about what you use PasteSpace for helps even more.
+### Under the hood
 
-Now and then, macOS may also show its own rating request — three times at most, always at a quiet moment, and never again once you've used the Rate button in Settings. PasteSpace never sees your rating, and nothing about how you use it leaves your Mac.
+| Component | Technology |
+|---|---|
+| Encryption | AES-256-GCM via Apple CryptoKit |
+| Key storage | macOS Keychain (this device only, available when unlocked), with a backup in the sandboxed app folder |
+| Vault fingerprints | HMAC-SHA256 under a key derived from the Vault key |
+| Authentication | Touch ID or device password via LocalAuthentication |
+| Text recognition | Apple Vision, in a separate sandboxed helper with no network or file access, which quits when idle |
+| Document reading | Apple PDFKit and AppKit's document readers; web pages by PasteSpace's own reader, which never loads anything a page links to |
+| Database | SQLite via GRDB.swift, with a full-text search index |
+| In-app purchase | StoreKit 2 with on-device verification |
+| Interface | SwiftUI and AppKit, native macOS |
+| Paste | Clipboard only — no simulated keystrokes, no Accessibility permission |
+| Export compliance | `ITSAppUsesNonExemptEncryption = false` (local data protection only) |
 
-Something not working the way you'd expect? Write to me as well — I read every email, and a review that describes a problem helps get it fixed for everyone.
+---
+
+<a id="whats-new"></a>
+## What's new in PasteSpace 3.0
+
+### A new design
+
+- **More room for what you copied.** Each item's text now spans the full width of the window. Its buttons sit in a slim bar underneath — faint until you point at the item — with the source app and the exact date and time of the copy on the right. A cleaner header, item counts on both sections, a discreet *✓ Copied* confirmation, and formatted text that stays readable in both Light and Dark mode.
+- **Open at mouse cursor** — the window opens right under your pointer, with the pointer already resting on your newest item.
+- **Always on top** — the window stays open above your other apps while you work, and copying an item no longer closes it.
+- **A switch for every feature.** Quick Look, Data Magic, QR codes, Share and reading text from documents can each be turned off in Settings — and a feature you turn off takes its button off every item, so your history shows only what you use. Also new in Settings: *Always copy as plain text*, and *Keep history for* 1, 7 or 30 days, or forever.
+- **Fold away Pinned** — one click on the *PINNED* header collapses the section, so your recent copies start right at the top.
+- **Arrange your history** by dragging items; the list scrolls by itself when you hold an item near its edge.
+- **Work with many items at once** — ⌘-click or ⌘Return to build a selection, ⇧-click for a range, then copy, pin, protect, reveal in Finder, delete or drag them all together.
+- **Faster and lighter** — PasteSpace opens instantly and scrolls smoothly even with large images and long web pages in your history, and text recognition gives back its memory as soon as it's done.
+
+### Finding things
+
+- **Filters and sorting** — narrow your history by 15 kinds of content (links, code, passwords, images, PDFs and other documents, archives, folders…), and in Pro by date, state and source app. Nine sort orders, including *Most used* and *Recently used*. Every active filter is shown as a removable chip, so nothing ever silently hides part of your history.
+- **Search inside documents** *(Pro)* — the PDFs, Word, RTF and OpenDocument files, web pages, and text and code files you copy are read, so searching for a word finds the file that contains it. Scanned PDFs are recognised page by page, and no document is too large to be read.
+- **Find in Quick Look** — press **⌘F** (or the 🔍 in the title bar) to search the text you're reading or editing, including the text of images and documents. Accents don't matter: *sarbatoare* finds *sărbătoare*.
+- **Item details** — an ⓘ next to each item shows what the row can't: the code language, the full link, a file's size and location, image dimensions, when it will be removed — and every time the item was copied.
+
+### Text in images and documents
+
+- **Text recognition in 30 languages**, detected automatically: English (US), French, Italian, German, Spanish, Portuguese (Brazil), Chinese (Simplified and Traditional), Cantonese (Simplified and Traditional), Korean, Japanese, Russian, Ukrainian, Thai, Vietnamese, Arabic, Najdi Arabic, Turkish, Indonesian, Czech, Danish, Dutch, Norwegian, Norwegian Bokmål, Norwegian Nynorsk, Malay, Polish, Romanian and Swedish. *(All 30 on macOS 26; earlier versions of macOS recognise fewer.)*
+- **Edit the text PasteSpace reads** — the text recognised in an image or extracted from a document can now be edited: correct it, and save it as a new item linked to the original. Images and documents open in Quick Look with *Preview* and *Extracted text* tabs.
+- **No size limits** — images and files of any size are recorded and read, and scanned PDFs are recognised in full, every page.
+- **Web pages keep their look** — fonts, colours and highlights come from the page's own style sheets, and nothing the page links to is ever downloaded.
+- **Text files in any encoding** — older national encodings such as Windows-1250, Windows-1251, Shift-JIS or Big5 are recognised automatically.
+
+### Quick Look and editing
+
+- **Undo and redo** in the text editor — toolbar buttons, or **⌘Z** and **⇧⌘Z**, for typing and formatting alike.
+- **Edits never overwrite** — saving creates a new version; *Original ⇄ Edited* lets you switch between them.
+- **Copy formatted / Copy as plain text** — wherever text is shown with formatting, for all of it or just the part you've selected.
+
+### Vault
+
+- **A stronger Vault** — locked items now hide completely from search; their formatting and any text read out of them are encrypted along with the content; previews reveal far less (a password shows only dots); copying a locked secret again no longer creates a readable copy; and a copy from a password manager is never stored unlocked. More kinds of secrets are recognised, with fewer false alarms. [How it works →](#vault)
+
+### Data Magic
+
+- **57 actions, 20 of them new** — code clean-up, *JSON → Swift struct* and *→ TypeScript interface*, *Remove Tracking from Link*, extracting the links, email addresses and phone numbers from a text, *Calculate Result*, *Add Up Numbers* and more. Data Magic now offers only the actions that fit what you copied, recognises code in about 30 programming languages, and its preview and 👁 button now work as they should.
+
+### Drag and drop
+
+- **Fixed throughout, and tested with every kind of item** — text, links, images, single files, groups of files, Vault items and multiple selections — into Finder, Apple's apps and third-party apps alike, including web-based ones such as Slack and WhatsApp. Files arrive as real files under their own names, a selection arrives whole, and several locked items need just one Touch ID.
+
+### Also new
+
+- **Share** any item through Messages, Mail, AirDrop, Notes and other services.
+- **Ephemeral Mode asks before quitting** — it shows what will be erased and what will be kept, and asks too when your Mac is about to log out, restart or shut down.
+- **Rate PasteSpace from inside the app** — from a card at the end of Settings, plus an occasional reminder at a quiet moment, which stops for good once you've used that card. [Why it matters →](#rating)
+- **Buy Pro straight from PasteSpace's App Store page**, as well as inside the app.
+- **A new app icon**, redrawn for current macOS.
 
 ---
 
