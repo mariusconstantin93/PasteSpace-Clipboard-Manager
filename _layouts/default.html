@@ -4,6 +4,42 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   {% seo %}
+  {% if page.url == "/" %}
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": "PasteSpace — Clipboard Manager",
+    "alternateName": "PasteSpace",
+    "description": {{ page.description | jsonify }},
+    "url": {{ "/" | absolute_url | jsonify }},
+    "applicationCategory": "UtilitiesApplication",
+    "applicationSubCategory": "Clipboard manager",
+    "operatingSystem": "macOS 14 or later",
+    "downloadUrl": "https://apps.apple.com/app/id6762815491",
+    "installUrl": "https://apps.apple.com/app/id6762815491",
+    "sameAs": ["https://apps.apple.com/app/id6762815491"],
+    "author": { "@type": "Person", "name": "Marius Constantin Popescu" },
+    "isAccessibleForFree": true,
+    "offers": [
+      { "@type": "Offer", "name": "PasteSpace", "price": "0", "priceCurrency": "USD" },
+      { "@type": "Offer", "name": "PasteSpace Pro (lifetime, one-time in-app purchase)", "price": "19.99", "priceCurrency": "USD" }
+    ],
+    "featureList": [
+      "Clipboard history for text, links, images and files, kept only on the Mac",
+      "Passwords, card numbers, IBANs and API keys recognised as they are copied and encrypted with AES-256-GCM, unlocked with Touch ID",
+      "Search for text inside screenshots and images, recognised on-device",
+      "Search inside copied PDFs, Word and other documents, scanned PDFs included (Pro)",
+      "Works fully offline: no account, no cloud, no data collected",
+      "Filters, sorting, pinned items and multiple selection",
+      "Quick Look text editor with versions, find, and undo and redo",
+      "Data Magic: 57 transformations for JSON, code, tables, links, colours and dates",
+      "App Blocklist and Ephemeral Mode",
+      "No Accessibility permission required"
+    ]
+  }
+  </script>
+  {% endif %}
   <style>
     body {
       font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
