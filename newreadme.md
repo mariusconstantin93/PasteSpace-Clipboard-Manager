@@ -32,7 +32,7 @@ permalink: /
 
 - [The problem](#problem)
 - [How PasteSpace works](#how-it-works)
-- [What's new in PasteSpace 2.1](#whats-new)
+- [What's new in PasteSpace 3.0](#whats-new)
 - [Screenshots](#screenshots)
 - [Your clipboard history](#history)
 - [Search, filters and sorting](#search)
@@ -51,6 +51,7 @@ permalink: /
 - [Every setting, explained](#settings)
 - [Keyboard shortcuts](#shortcuts)
 - [Free vs. Pro](#free-vs-pro)
+- [Rating PasteSpace](#rating)
 - [Privacy](#privacy)
 - [Security architecture](#security)
 - [Questions people ask](#faq)
@@ -92,19 +93,58 @@ PasteSpace lives in your **menu bar**. From the moment it starts, every time you
 ---
 
 <a id="whats-new"></a>
-## What's new in PasteSpace 2.1
+## What's new in PasteSpace 3.0
+
+### A new design
+
+- **More room for what you copied.** Each item's text now spans the full width of the window. Its buttons sit in a slim bar underneath — faint until you point at the item — with the source app and the exact date and time of the copy on the right. A cleaner header, item counts on both sections, a discreet *✓ Copied* confirmation, and formatted text that stays readable in both Light and Dark mode.
+- **Open at mouse cursor** — the window opens right under your pointer, with the pointer already resting on your newest item.
+- **Always on top** — the window stays open above your other apps while you work, and copying an item no longer closes it.
+- **A switch for every feature.** Quick Look, Data Magic, QR codes, Share and reading text from documents can each be turned off in Settings — and a feature you turn off takes its button off every item, so your history shows only what you use. Also new in Settings: *Always copy as plain text*, and *Keep history for* 1, 7 or 30 days, or forever.
+- **Fold away Pinned** — one click on the *PINNED* header collapses the section, so your recent copies start right at the top.
+- **Arrange your history** by dragging items; the list scrolls by itself when you hold an item near its edge.
+- **Work with many items at once** — ⌘-click or ⌘Return to build a selection, ⇧-click for a range, then copy, pin, protect, reveal in Finder, delete or drag them all together.
+- **Faster and lighter** — PasteSpace opens instantly and scrolls smoothly even with large images and long web pages in your history, and text recognition gives back its memory as soon as it's done.
+
+### Finding things
 
 - **Filters and sorting** — narrow your history by 15 kinds of content (links, code, passwords, images, PDFs and other documents, archives, folders…), and in Pro by date, state and source app. Nine sort orders, including *Most used* and *Recently used*. Every active filter is shown as a removable chip, so nothing ever silently hides part of your history.
-- **Search inside documents** *(Pro)* — PasteSpace reads the text of the PDFs, Word files and other documents you copy, so searching for a word finds the file that contains it. Scanned PDFs are recognised too. The text keeps its original formatting.
-- **A stronger Vault** — locked items now hide completely from search, their formatting and any text read out of them are encrypted along with the content, previews reveal far less (a password shows only dots), and copying a locked secret again no longer creates a readable copy. [How it works →](#vault)
-- **Better text recognition** — every language your Mac can recognise is detected automatically, and images and documents open in Quick Look with *Preview* and *Extracted text* tabs.
-- **Copy formatted / Copy as plain text** — wherever text is shown with formatting, you choose which you want, including for just the part you've selected.
-- **Edits never overwrite** — saving in the Quick Look editor creates a new version; *Original ⇄ Edited* lets you switch between them.
-- **Work with many items at once** — ⌘-click or ⌘Return to build a selection, ⇧-click for a range, then copy, pin, protect, reveal in Finder, delete or drag them all together.
-- **Arrange your history** — drag items to reorder them. The *Pinned* section folds away with one click, and both sections show their counts.
+- **Search inside documents** *(Pro)* — the PDFs, Word, RTF and OpenDocument files, web pages, and text and code files you copy are read, so searching for a word finds the file that contains it. Scanned PDFs are recognised page by page, and no document is too large to be read.
+- **Find in Quick Look** — press **⌘F** (or the 🔍 in the title bar) to search the text you're reading or editing, including the text of images and documents. Accents don't matter: *sarbatoare* finds *sărbătoare*.
+- **Item details** — an ⓘ next to each item shows what the row can't: the code language, the full link, a file's size and location, image dimensions, when it will be removed — and every time the item was copied.
+
+### Text in images and documents
+
+- **Text recognition in 30 languages**, detected automatically: English (US), French, Italian, German, Spanish, Portuguese (Brazil), Chinese (Simplified and Traditional), Cantonese (Simplified and Traditional), Korean, Japanese, Russian, Ukrainian, Thai, Vietnamese, Arabic, Najdi Arabic, Turkish, Indonesian, Czech, Danish, Dutch, Norwegian, Norwegian Bokmål, Norwegian Nynorsk, Malay, Polish, Romanian and Swedish. *(All 30 on macOS 26; earlier versions of macOS recognise fewer.)*
+- **Edit the text PasteSpace reads** — the text recognised in an image or extracted from a document can now be edited: correct it, and save it as a new item linked to the original. Images and documents open in Quick Look with *Preview* and *Extracted text* tabs.
+- **No size limits** — images and files of any size are recorded and read, and scanned PDFs are recognised in full, every page.
+- **Web pages keep their look** — fonts, colours and highlights come from the page's own style sheets, and nothing the page links to is ever downloaded.
+- **Text files in any encoding** — older national encodings such as Windows-1250, Windows-1251, Shift-JIS or Big5 are recognised automatically.
+
+### Quick Look and editing
+
+- **Undo and redo** in the text editor — toolbar buttons, or **⌘Z** and **⇧⌘Z**, for typing and formatting alike.
+- **Edits never overwrite** — saving creates a new version; *Original ⇄ Edited* lets you switch between them.
+- **Copy formatted / Copy as plain text** — wherever text is shown with formatting, for all of it or just the part you've selected.
+
+### Vault
+
+- **A stronger Vault** — locked items now hide completely from search; their formatting and any text read out of them are encrypted along with the content; previews reveal far less (a password shows only dots); copying a locked secret again no longer creates a readable copy; and a copy from a password manager is never stored unlocked. More kinds of secrets are recognised, with fewer false alarms. [How it works →](#vault)
+
+### Data Magic
+
+- **57 actions, 20 of them new** — code clean-up, *JSON → Swift struct* and *→ TypeScript interface*, *Remove Tracking from Link*, extracting the links, email addresses and phone numbers from a text, *Calculate Result*, *Add Up Numbers* and more. Data Magic now offers only the actions that fit what you copied, recognises code in about 30 programming languages, and its preview and 👁 button now work as they should.
+
+### Drag and drop
+
+- **Fixed throughout, and tested with every kind of item** — text, links, images, single files, groups of files, Vault items and multiple selections — into Finder, Apple's apps and third-party apps alike, including web-based ones such as Slack and WhatsApp. Files arrive as real files under their own names, a selection arrives whole, and several locked items need just one Touch ID.
+
+### Also new
+
 - **Share** any item through Messages, Mail, AirDrop, Notes and other services.
-- **Keep history for** 1, 7 or 30 days — or forever.
-- **Item details** — an ⓘ next to each item shows what the row can't: the code language, the full link, a file's size and location, image dimensions, when it will be removed.
+- **Ephemeral Mode asks before quitting** — it shows what will be erased and what will be kept, and asks too when your Mac is about to log out, restart or shut down.
+- **Rate PasteSpace from inside the app** — from a card at the end of Settings, plus an occasional reminder at a quiet moment, which stops for good once you've used it. [How it works →](#rating)
+- **Buy Pro straight from PasteSpace's App Store page**, as well as inside the app.
 - **A new app icon**, redrawn for current macOS.
 
 ---
@@ -143,7 +183,7 @@ PasteSpace lives in your **menu bar**. From the moment it starts, every time you
 </details>
 
 <details>
-  <summary><strong>🪄 Data Magic</strong> — 54 instant transformations</summary>
+  <summary><strong>🪄 Data Magic</strong> — 57 instant transformations</summary>
   <br/>
   <p align="center">
     <img src="screenshots/app_data_magic.jpg" alt="Data Magic instant transformations" width="640" />
@@ -215,17 +255,23 @@ Each item records **which app it came from** and **the date and time** you copie
 Some copies are deliberately skipped:
 
 - **Anything an app marks as private.** Many apps tag passwords and one-time codes as "concealed" or "transient" when they put them on the clipboard. PasteSpace respects that tag and doesn't record them.
-- **Copies from password managers** (1Password, Bitwarden, LastPass, Dashlane, KeePassXC, Enpass, NordPass, Proton Pass, RoboForm, Apple Passwords, Keychain Access) — unless you allow them into the Vault, which is on by default. Then they go straight into the Vault, encrypted. [More in the Vault section](#vault-sources).
+- **Copies from password managers** (1Password, Bitwarden, LastPass, Dashlane, KeePassXC, Enpass, NordPass, Proton Pass, RoboForm, Apple Passwords, Keychain Access) — unless you allow them into the Vault, which is on by default. Then they go straight into the Vault, encrypted — and if the Vault can't take them, they aren't recorded at all. [More in the Vault section](#vault-sources).
 - **Apps you've put on the [App Blocklist](#blocklist).**
-- **Items larger than 10 MB.**
+- **More than 10 MB of text copied in one go.** **Images and files of any size are always recorded** — an image copied with *Copy Image* however large, and a file copied in Finder, whose location is recorded whatever its size.
 - **Content arriving from another device through Universal Clipboard.**
 - **PasteSpace's own copies** — when you copy something *from* PasteSpace, it doesn't record it a second time.
 
 ### Copying the same thing twice
 
-Copying something that is already in your history doesn't create a duplicate. The existing item takes the new copy time and source app, and **stays where it is** — so items you've arranged by hand don't jump around.
+Copying something in another app that is already in your history doesn't create a duplicate. The existing item takes the new copy time and source app, and **moves back to the top**, where a fresh copy belongs — even if you had [dragged it somewhere else](#arranging) before. Only **pinned** items keep their place, so your pins don't reshuffle.
+
+This applies to locked items too: copying a password that's already in your Vault refreshes the locked item and brings it to the top, instead of adding a second copy. And if you had **removed the protection** from that password and then copy it again from your password manager — or copy a secret PasteSpace recognises — the item **is locked again** and keeps its whole copy history, rather than staying readable next to a new locked copy.
+
+Copying an item **from** PasteSpace — clicking it, pressing Return — **doesn't move it**: your list stays the way it was, so the item is still where your hand expects it next time. The copy is still noted in the item's [copy history](#history).
 
 ### Reading a row
+
+Each item's text runs the full width of the window. Beneath it, a slim bar holds the item's buttons on the left and where and when it was copied on the right — so the content gets the space, and the controls stay out of the way until you need them.
 
 Every row shows what it is at a glance:
 
@@ -233,11 +279,34 @@ Every row shows what it is at a glance:
 - **A small text badge on the icon** when PasteSpace has read text out of the item — words recognised in an image, or the text of a document. It's a marker, not a button: the text itself is read in Quick Look.
 - **The source app and the exact date and time** at the bottom right. (Dates show the year only when it isn't the current one.)
 - **An ⓘ** next to the source. Hover over it for a moment, or click it, to see what the row can't show: the kind of content and its size in characters, words and lines, the programming language of a code snippet, the full link, a file's location, kind and size, a folder's total size, an image's dimensions, whether the item is an edited version, and — if *Keep history for* is set — when it will be removed automatically. For a locked Vault item, the ⓘ says only **Protected**.
-- **Action buttons** along the bottom — faint until you point at the row, so the list stays calm.
+- **The item's copy history**, at the bottom of the ⓘ details: how many times it has been copied, then each copy on its own line, newest first — the date and time, and where it happened:
+
+  ```text
+  Copied: 4 times
+  Oct 2, 18:20 · from PasteSpace
+  Oct 2, 18:11 · in Passwords
+  Oct 1, 09:02 · from PasteSpace, as plain text
+  Sep 30, 14:10 · its text, from PasteSpace
+  ```
+
+  "In Safari" means you copied it in Safari; "from PasteSpace" means you copied it out of your history. The 20 most recent copies are listed, with a count of the earlier ones. Items that were already in your history before this feature existed show the last copies PasteSpace knew about, followed by *Earlier copies weren't recorded*. A locked item's copy history appears once you reveal it. Dragging an item into another app and sharing it aren't counted as copies.
+- **Action buttons** along the bottom — faint until you point at the row, so the list stays calm. When you select two or more items, the rows hide their buttons and show the order you picked them in; the actions move to the selection bar.
+
+<a id="buttons"></a>
+### Buttons you don't use disappear
+
+Every feature with a button on the rows — **Quick Look, Data Magic, QR Code and Share** — has its own switch in [Settings](#settings). Turn one off and its button disappears from **every item**, so your history shows only the tools you actually use. Turn it back on and the buttons return.
+
+Two buttons behave differently, on purpose:
+
+- **A locked item keeps its 👁** even when Quick Look is off, because it's the only way to reveal what's inside. It then simply shows and hides the content in the row, without opening Quick Look.
+- **With the Vault switched off**, the 🔒 button stays, dimmed, and points you to the setting that turns the Vault back on.
+
+Some buttons appear only where they make sense: Data Magic and QR codes on text, the plain-text button on formatted text, a copy-text button on images with recognised text.
 
 ### Using an item
 
-- **Click a row, or select it with ↑ ↓ and press Return** — the item goes on the clipboard, PasteSpace closes, and your previous app comes back to the front. Press `⌘V`.
+- **Click a row, or select it with ↑ ↓ and press Return** (hold an arrow key to move quickly — the list follows as you go) — the item goes on the clipboard, the row flashes **✓ Copied**, PasteSpace closes, and your previous app comes back to the front. Press `⌘V`. (With *Always on top*, the window stays open and only hands the focus back.)
 - **⌥Return** copies the selected item **as plain text**, without its formatting.
 - **Formatted items also have a plain-text button**, for the same thing with the mouse.
 
@@ -250,9 +319,10 @@ Pin the things you paste often — your email signature, an address, a template 
 - Both headers show their counts — *PINNED (4)*, *RECENT (103)* — while the footer shows the total.
 - Free: up to 3 pinned items. Pro: as many as you like.
 
+<a id="arranging"></a>
 ### Arranging your history
 
-Drag an item up or down the list to put it where you want it. A blue line shows where it will land. Your arrangement is kept.
+Drag an item up or down the list to put it where you want it. A blue line shows where it will land. Hold it near the top or bottom edge of the list and the history scrolls to follow — slowly at first, faster the closer you get to the edge — so you can move an item anywhere, not only among the ones on screen. Your arrangement is kept — until you copy that item again in another app, which brings it back to the top as its newest copy. Copying it *from* PasteSpace leaves it where it is.
 
 Reordering is switched off while a search or a filter is active, or when the list is sorted by something other than your own order: dropping an item between two of the visible rows would put it in an unpredictable spot among the hidden ones.
 
@@ -272,7 +342,7 @@ Two settings work together:
 - **History limit** — how many items to keep. When it's reached, the oldest items make room for new ones. Pinned and Vault items don't count toward the limit and are never removed by it. Free: 10 items. Pro: any number, or unlimited.
 - **Keep history for** — *Forever* (the default), *1 day*, *7 days* or *30 days*. Items older than that are removed automatically. Copying an item again restarts its time; unpinning an item gives it a fresh period. Pinned and Vault items never expire.
 
-PasteSpace also counts, privately on your Mac, how often you actually use each item — every time you paste it or copy text out of it. That is what powers the *Most used* and *Recently used* sort orders. It's never shared and never leaves your Mac.
+PasteSpace also keeps, privately on your Mac, a record of every time each item is copied — the copy history in its ⓘ details — and counts how often you use each item from PasteSpace, which powers the *Most used* and *Recently used* sort orders. When an item is deleted, its records go with it. None of this is ever shared or leaves your Mac.
 
 ---
 
@@ -363,7 +433,7 @@ The rules are strict on purpose: it is better to occasionally miss a secret than
 
 **2. By hand.** Click 🔒 on any item — text, a link, an image, a file, a group of files — or select several and choose *Protect all with Vault*.
 
-**3. From password managers.** Copies from the password managers listed [above](#history) are normally never recorded at all. With *Capture from password managers* on (the default), they're recorded **straight into the Vault**, encrypted. Turn the option off and PasteSpace goes back to ignoring them completely.
+**3. From password managers.** Copies from the password managers listed [above](#history) are normally never recorded at all. With *Capture from password managers* on (the default), they're recorded **straight into the Vault**, encrypted. A password-manager copy is **never stored unlocked**: if it can't go into the Vault — because the free Vault is full, or the Vault is switched off — it isn't recorded at all, exactly as if the option were off. Turn the option off and PasteSpace goes back to ignoring them completely.
 
 You can switch automatic detection off in Settings and keep only manual locking, or turn the Vault off entirely.
 
@@ -450,6 +520,7 @@ To avoid duplicates, PasteSpace gives each item a fingerprint of its contents. F
 What this means in practice:
 
 - **Copying a locked secret again refreshes the locked item** instead of adding a readable copy beside it.
+- **Copying again a secret you had unlocked locks it again.** If you removed the protection from a password and later copy that same password from your password manager — or copy a secret PasteSpace recognises — the existing item is locked again and the new copy merges into it, with its full copy history. It never stays readable beside a new locked duplicate.
 - **A new copy that gets locked automatically** is never merged into an older, unlocked item — that would leave the secret readable.
 
 <a id="vault-key"></a>
@@ -484,7 +555,7 @@ When you drag a locked item, PasteSpace promises the destination a file and writ
 
 ### Limits
 
-- **Free:** the Vault holds **2 items**, whether locked automatically or by hand. Once it's full, new sensitive copies are no longer locked automatically — they're stored like any other item. Pro removes the limit.
+- **Free:** the Vault holds **2 items**, whether locked automatically or by hand. Once it's full, secrets you copy in ordinary apps are no longer locked automatically — they're stored like any other item. Copies from password managers are the exception: they are **not recorded at all** until there's room in the Vault again. Pro removes the limit.
 - **Clear Vault** in Settings deletes every locked item at once, after authentication.
 - Turning the Vault off doesn't delete what's already in it.
 
@@ -497,10 +568,18 @@ When you copy an image — a screenshot, a photo, a scan — PasteSpace **reads 
 
 > **Example:** You take a screenshot of an error dialog. Days later you remember only the error code. You type the code into PasteSpace's search, and the screenshot appears.
 
-- **Every language your Mac can recognise** is supported, and the language is **detected automatically** — you don't choose it.
-- Images copied as **files** in Finder are read too.
+- **30 languages**, and the language of each image is **detected automatically** — you don't choose it:
+
+  - **Latin script** — English (US), French, Italian, German, Spanish, Portuguese (Brazil), Dutch, Danish, Norwegian, Norwegian Bokmål, Norwegian Nynorsk, Swedish, Polish, Czech, Romanian, Turkish, Indonesian, Malay, Vietnamese
+  - **Cyrillic** — Russian, Ukrainian
+  - **East and Southeast Asian scripts** — Chinese (Simplified and Traditional), Cantonese (Simplified and Traditional), Japanese, Korean, Thai
+  - **Arabic script** — Arabic, Najdi Arabic
+
+  The languages come from macOS itself: all 30 are available on macOS 26, earlier versions of macOS recognise fewer, and PasteSpace always uses every one your Mac offers. The languages you've set for your Mac are tried first, so a page in your own language is read by its own model.
+- Images copied as **files** in Finder are read too — **of any size**.
 - Large images are scaled down for reading only; the image you copied is never changed.
-- Open the image in **Quick Look** and switch between **Preview** and **Extracted text**. The text can be selected, copied, or edited and saved as a new item.
+- Reading runs in a **separate, sandboxed helper** inside PasteSpace, with no network access and no access to your files. Recognition needs about 100 MB, and the helper quits after 30 seconds without work, so that memory goes back to your Mac instead of staying with PasteSpace all day.
+- Open the image in **Quick Look** and switch between **Preview** and **Extracted text**. The text can be selected and copied — and **edited**: correct a word the recognition misread, save, and the corrected text becomes a new item, linked to the image as its edited version ([Versions](#quick-look)).
 - Images with recognised text carry a small **text badge** on their icon.
 - Recognised text is plain text: image recognition reports words, not fonts or colours.
 - **Locked images** aren't read; text read before locking is kept, encrypted.
@@ -521,22 +600,23 @@ PasteSpace reads the text of the documents you copy in Finder, so searching for 
 | Document | How |
 |---|---|
 | PDFs with a text layer | Page by page, with their original fonts, sizes and colours. |
-| Scanned PDFs (no text layer) | The first 5 pages are recognised like an image. |
-| Word (`.doc`, `.docx`), RTF, OpenDocument text, HTML, web archives | With their formatting. |
-| Plain text and source-code files | As they are. |
+| Scanned PDFs (no text layer) | Every page is recognised like an image, one after another in the background — a long scan takes a few minutes. |
+| Word (`.doc`, `.docx`), RTF, OpenDocument text | With their formatting. |
+| HTML pages and web archives | With their formatting — fonts, sizes, weights, colours, highlights, links, lists — read from the page's own style sheets, including those saved inside a web archive. Nothing the page refers to is ever downloaded. |
+| Plain text and source-code files | As they are, in whatever encoding they were saved — UTF-8 and UTF-16, and the older national ones such as Windows-1250, Windows-1251, Shift-JIS, GB18030, Big5 or KOI8-R, recognised automatically. |
 
 **What you can do with it:**
 
 - **Search** — the document's words are added to the search index.
 - **Quick Look** opens the document with two tabs: **Preview** (the document itself) and **Extracted text**.
 - When the document had formatting, the extracted text keeps it, and you get **Copy formatted** *and* **Copy as plain text** — for the whole text or for what you've selected. A plain `.txt` file or a single-font PDF just gets **Copy**.
-- The text can be edited and saved as a new item, like any other text.
+- The text can be **edited** — fix what a scan misread, keep just the paragraph you need — and saved as a new item, linked to the document as its edited version.
 - The ⓘ details report how much text was read, and whether it's formatted.
 
 **Limits and behaviour:**
 
-- To stay fast, PasteSpace reads up to **100 pages** or **200,000 characters** per document, and skips non-PDF files larger than **25 MB**. A 4,000-page manual would take seconds to read in full; the first hundred pages take a fraction of a second.
-- Documents copied before you upgraded, or before this feature existed, are read gradually — up to 50 each time PasteSpace starts.
+- **No document is skipped for being big.** PasteSpace keeps up to **200,000 characters** of text from every document, whatever its size — from up to the first **100 pages** of a PDF's text, and from every page of a scanned PDF. A 4,000-page manual would take seconds to read in full; the first hundred pages take a fraction of a second. Reading happens in the background, so even a very large file never slows the window down.
+- Documents copied before you upgraded, or before this feature existed, are read gradually — up to 50 each time PasteSpace starts. Scanned PDFs that were read when only their first five pages were recognised are read again once, the same way, so their whole text becomes searchable.
 - **Locked documents aren't read** — PasteSpace would have to decrypt them without you. Text read before locking is kept, encrypted, and returns when you remove the protection.
 - Turn it off with *Text extraction from documents*. Text already read stays searchable.
 
@@ -551,14 +631,28 @@ Quick Look opens any item in a floating panel, with room to read it — and, for
 
 - **Text** — the whole text, with its formatting adjusted so it's readable in both Light and Dark mode. (Only the display is adjusted: copying, pasting and dragging always use the formatting exactly as captured.)
 - **Images** — the full image, and a separate *Extracted text* tab when it contains text.
-- **Documents** — a *Preview* tab with the document itself, and an *Extracted text* tab ([Pro](#documents)).
+- **Documents** — a *Preview* tab with the document itself, and an *Extracted text* tab ([Pro](#documents)). Web pages and web archives open straight on their text, formatted from the page's own style sheets: macOS can't draw a web page inside a sandboxed app's preview, and drawing it with a web engine of our own would fetch whatever the page links to.
 - **Other files** — the standard macOS preview.
 - **Selecting text** shows a small floating button to copy just the selection — **Copy formatted** and **Copy as plain text** when the text has formatting, **Copy selection** when it doesn't.
+
+### Finding
+
+Press **⌘F**, or click the **🔍** at the right of the title bar, and a find bar opens above the text — while reading and while editing alike. Every match is highlighted, the current one more strongly, and the count reads **3 of 12**.
+
+- **Return** or **⌘G** goes to the next match, **⇧Return** or **⇧⌘G** to the previous one. If you've clicked somewhere in the text in the meantime, the search carries on from there.
+- Upper and lower case don't matter, and neither do accents.
+- Select a word before pressing **⌘F** and the search starts with it.
+- In the editor the matches follow your typing, so you can keep the bar open while you correct each one.
+- **Esc** or **Done** closes the bar and leaves the match you were on selected — in the editor, the cursor is right there.
+- On a document or image, **⌘F** switches to the *Extracted text* tab for you; the file's own preview can't be searched.
+
+The highlights are only drawn on screen: they never become part of the text you save or copy. What you search for stays inside PasteSpace — it isn't shared with the find field of other apps.
 
 ### Editing
 
 Click **Edit** for a full rich-text editor:
 
+- **undo and redo** — the ↶ ↷ buttons at the start of the toolbar, or **⌘Z** and **⇧⌘Z**. They take back formatting as well as typing, and a whole typed run goes back in one step;
 - font family and size, **bold**, *italic*, underline, ~~strikethrough~~;
 - text colour and highlight colour, each from a 27-colour palette;
 - clear the formatting of selected characters;
@@ -595,7 +689,7 @@ Pick an action and the result is copied, ready to paste. The original item stays
 > **Analyst:** Copy cells from a spreadsheet → 🪄 → *To Markdown Table*.
 > **Everyone:** Copy a long link from a newsletter → 🪄 → *Remove Tracking from Link*.
 
-**All 54 transformations:**
+**All 57 transformations:**
 
 | Content | Transformations |
 |---|---|
@@ -608,7 +702,7 @@ Pick an action and the result is copied, ready to paste. The original item stays
 | **Encoding** | Decode Base64 · Encode to Base64 · Escape for JSON · Escape for HTML |
 | **HTML and Markdown** | HTML → Markdown · Markdown → HTML |
 | **Letter case** | To camelCase · To snake_case · To kebab-case · To UPPERCASE · To lowercase · To Title Case · To Sentence case |
-| **Everyday text** | Clean Up Text · Sort Lines A → Z · Remove Duplicate Lines · Number the Lines · Add Up Numbers · Calculate Result · Normalize Phone Number · Remove Diacritics |
+| **Everyday text** | Clean Up Text · Extract Links · Extract Email Addresses · Extract Phone Numbers · Sort Lines A → Z · Remove Duplicate Lines · Number the Lines · Add Up Numbers · Calculate Result · Normalize Phone Number · Remove Diacritics |
 
 Everything runs offline, on your Mac. Code detection recognises around 30 programming languages plus JSON, HTML, XML and YAML.
 
@@ -652,6 +746,14 @@ Drag items **out of** PasteSpace straight into other apps:
 - **Files and groups of files** into Finder, Mail, Slack and other apps — as the real files, not shortcuts.
 - **A whole selection at once** — text items are joined with your separator, files arrive as files, locked items as promised files.
 - **Locked items** — the authentication prompt appears when you drop, the content is decrypted only after you've authenticated, and several locked items need only **one** authentication. Some web-based apps such as WhatsApp can't receive locked documents this way — [reveal them first](#vault).
+- **Revealed items** (unlocked with 👁) are dragged as what they really are — text as text, a file as the file — alone or in a selection, with no further prompt.
+
+Every kind of item has been tested this way — text, links, images, single files, groups of files, locked and revealed Vault items, and mixed selections — both into Finder and Apple's apps and into third-party apps, including those built on web technology, such as Slack and WhatsApp, which are the fussiest about what they accept:
+
+- files arrive as real files under their own names, never as unnamed data;
+- a multi-selection arrives whole — no item is dropped on the way;
+- the picture under your pointer matches the item, whatever its kind;
+- with *Always on top*, a drag starts on the very first click, even while another app is in front.
 
 Dragging an item **within** the list rearranges your history ([see above](#history)). Nothing is ever added to your history by dropping onto PasteSpace.
 
@@ -689,7 +791,8 @@ Tell PasteSpace to ignore certain apps completely. Anything copied in a blocked 
 
 For when you want a clean slate every day. With Ephemeral Mode on, your history is erased whenever PasteSpace quits — including when your Mac restarts or shuts down.
 
-- When you quit, PasteSpace shows exactly what will happen — what will be erased and what will be kept — and asks you to confirm.
+- **When you quit, PasteSpace asks first.** A window shows exactly what will happen — what will be erased and what will be kept — with **Confirm and Quit** and **Cancel**. Cancel (or Esc) keeps PasteSpace running with your history untouched.
+- **The same question appears when your Mac is about to log out, restart or shut down.** There, Cancel also stops the log out, restart or shut down. If nobody answers within **20 seconds**, PasteSpace goes ahead and erases your history as promised — an unattended Mac is never kept from shutting down.
 - **Vault items are always kept.**
 - **Pinned items are kept** too, unless you turn off *Keep Pinned items*.
 - The erasing is completed the next time PasteSpace starts, before any history is shown. Doing it at startup means it still happens even if your Mac shut down before PasteSpace could finish quitting.
@@ -731,12 +834,14 @@ Deleted items can't be recovered.
 | Pinned limit | 3 (free) | How many items can be pinned. Pro: any number, or ∞. |
 | Ephemeral Mode *(Pro)* | Off | Erases your history when PasteSpace quits. With *Keep Pinned items* (on). |
 | App Blocklist | Empty | Apps whose copies are never recorded. |
-| Vault | On | Encrypted storage for sensitive items. |
+| Vault | On | Encrypted storage for sensitive items. Off: nothing new is locked, and the 🔒 buttons dim. Items already locked stay locked. |
 | ↳ Auto-detect sensitive content | On | Locks recognised secrets automatically. |
 | ↳ Capture from password managers | On | Records password-manager copies straight into the Vault instead of ignoring them. |
 | Text recognition in images (OCR) | On | Reads the text in images you copy. |
 | Text extraction from documents *(Pro)* | On | Reads the text of documents you copy. |
-| Quick Look · Data Magic · QR Code · Share | On | Show or hide each button on every item. |
+| Quick Look · Data Magic · QR Code · Share | On | One switch each. A feature you turn off disappears from every item — its button is removed from the rows ([more](#buttons)). |
+
+At the end of Settings, **Rate PasteSpace on the App Store** opens PasteSpace's review page — see [Rating PasteSpace](#rating).
 
 ---
 
@@ -754,6 +859,17 @@ Deleted items can't be recovered.
 | **⇧-click** | Select a range |
 | **Esc** | Clear the selection — or close PasteSpace if nothing is selected |
 | **⌘V** | Paste, in your app |
+
+**In Quick Look**
+
+| Keys | Action |
+|---|---|
+| **⌘F** | Find in the text |
+| **Return** · **⌘G** | Next match |
+| **⇧Return** · **⇧⌘G** | Previous match |
+| **Esc** | Close the find bar |
+| **⌘Z** | Undo, in the editor |
+| **⇧⌘Z** | Redo, in the editor |
 
 ---
 
@@ -785,6 +901,26 @@ PasteSpace is **free to use**. Pro removes the limits and adds the power tools �
 Buy Pro inside the app (Settings, or any **PRO** badge), or directly from PasteSpace's page on the Mac App Store.
 
 **One purchase. No subscription. No account.**
+
+---
+
+<a id="rating"></a>
+## Rating PasteSpace
+
+Reviews help other people find PasteSpace. There are two ways to leave one — both go through the App Store itself; PasteSpace never sees or submits a rating.
+
+**Any time, from Settings.** The last card in Settings, **Rate PasteSpace on the App Store**, opens PasteSpace's review page in the App Store. It's always there — use it again after an update if you'd like to change your review. Its five stars are a single button that takes you to the App Store; nothing is rated inside PasteSpace.
+
+**An occasional reminder.** Now and then macOS may show its standard *Rate this app* request. PasteSpace asks for it only when all of this is true:
+
+- you've had PasteSpace for at least **two weeks**, opened it on at least **7 different days**, pasted from it at least **150 times**, and tried at least **three** of its features;
+- it's a **quiet moment** — you've just pasted something and come back to the window, with nothing else going on: no search, no selection, no Quick Look or other panel open;
+- nothing has gone wrong in the last **three days**, and you haven't just seen the Pro upgrade window;
+- it hasn't asked in the last **90 days**, and has asked fewer than **three** times in all.
+
+Once you've pressed a Rate button — on the card or in a reminder — **you're never reminded again**. macOS applies its own limits too, so the request may sometimes not appear at all.
+
+The counts behind the reminder — pastes, days, features tried — are kept only on your Mac and never sent anywhere, and PasteSpace is never told whether you left a review. [Privacy](#privacy)
 
 ---
 
@@ -850,7 +986,7 @@ Everything else is stored **locally**, inside PasteSpace's private **App Sandbox
 | Key storage | macOS Keychain (this device only, available when unlocked), with a backup in the sandboxed app folder |
 | Vault fingerprints | HMAC-SHA256 under a key derived from the Vault key |
 | Authentication | Touch ID or device password via LocalAuthentication |
-| Text recognition | Apple Vision |
+| Text recognition | Apple Vision, in a separate sandboxed helper with no network or file access, which quits when idle |
 | Document reading | Apple PDFKit and AppKit document readers |
 | Database | SQLite via GRDB.swift, with a full-text search index |
 | In-app purchase | StoreKit 2 with on-device verification |
@@ -867,7 +1003,7 @@ Everything else is stored **locally**, inside PasteSpace's private **App Sandbox
 Pasting for you would require the macOS Accessibility permission, which lets an app observe and control everything on your Mac. PasteSpace is built never to need it. [More](#how-it-works).
 
 **I copied a password and it wasn't locked.**
-It probably didn't meet the password rule — one word of 8–64 characters with an uppercase letter, a lowercase letter, a digit and a symbol. Lock it with 🔒. In the free version, also check whether your Vault already holds 2 items.
+It probably didn't meet the password rule — one word of 8–64 characters with an uppercase letter, a lowercase letter, a digit and a symbol. Lock it with 🔒. In the free version, also check whether your Vault already holds 2 items. (A password copied from a password manager is never stored unlocked — when the Vault is full, it isn't recorded at all.)
 
 **Why doesn't my password show up when I search for it?**
 Because it's locked. A search that could find locked items would let anyone confirm your secrets by guessing. Use the *Protected* or *Passwords* filter to find locked items. [More](#vault-search).
@@ -881,8 +1017,11 @@ No. PasteSpace protects its record of the file — name and location, behind Tou
 **Why did a locked document arrive empty in WhatsApp?**
 Some web-based apps read a dropped file before you've had time to authenticate. Reveal the item first, then drag it. [More](#vault).
 
+**A button is missing from my items.**
+Check Settings: Quick Look, Data Magic, QR Code and Share each have a switch, and turning one off removes its button from every item. Data Magic and QR codes also appear only on text. [More](#buttons).
+
 **Something I copied wasn't saved.**
-It may have come from a blocked app or a password manager, been marked private by the app you copied from, been larger than 10 MB, or arrived from another device through Universal Clipboard. [More](#history).
+It may have come from a blocked app or a password manager, been marked private by the app you copied from, been more than 10 MB of text (images and files of any size are always recorded), or arrived from another device through Universal Clipboard. [More](#history).
 
 **Will updating PasteSpace delete my history?**
 No. Your history, pinned items and Vault are kept across updates.
@@ -925,6 +1064,14 @@ Nothing — it simply stops being erased when PasteSpace quits.
 ## Built for macOS
 
 PasteSpace is a native macOS app built with SwiftUI and AppKit. It follows your Light or Dark appearance, uses Touch ID through macOS itself, and sits in your menu bar using very little memory or energy. It has been adapted for every macOS version from 14 to the current macOS 27 beta, including the new menu bar and windowing behaviour.
+
+**Fast with a long history.** PasteSpace builds only the items you can see, so the window opens instantly and scrolls smoothly however long your history grows:
+
+- **Images are fetched only when you use them** — to paste, drag, share or open them in Quick Look. Hundreds of large screenshots in your history cost the list nothing, and an image's dimensions and size are read in the background as its row comes into view.
+- **Long formatted texts** — a whole web page copied from Safari, say — show a short preview in their row, prepared in the background, while the full text waits in Quick Look.
+- **Files are checked in the background** — whether each one still exists or has moved to the Trash — so a folder full of file items never holds up scrolling.
+- **Text recognition runs in a separate helper** that quits 30 seconds after its last job, taking the roughly 100 MB that recognition needs with it.
+- Documents are read in the background, so even a scan of hundreds of pages never slows the window down.
 
 ## Legal
 
