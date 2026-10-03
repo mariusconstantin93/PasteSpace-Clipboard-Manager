@@ -35,6 +35,7 @@ permalink: /
 ## Contents
 
 - [The problem](#problem)
+- [Who it's for](#who-its-for)
 - [How PasteSpace works](#how-it-works)
 - [Privacy](#privacy)
 - [Your clipboard history](#history)
@@ -57,8 +58,8 @@ permalink: /
 - [Every setting, explained](#settings)
 - [Keyboard shortcuts](#shortcuts)
 - [Questions people ask](#faq)
-- [System requirements](#requirements)
 - [What's new in PasteSpace 3.0](#whats-new)
+- [System requirements](#requirements)
 - [Contact](#contact)
 
 ---
@@ -69,6 +70,13 @@ permalink: /
 You copy a phone number, then a link, then a paragraph from a document. When you need the phone number again, it's gone — replaced by the last thing you copied. So you dig through browser history, reopen documents and scroll through messages to find it again.
 
 **PasteSpace remembers what you copy**, so you don't have to — and it keeps the sensitive parts locked away while it does.
+
+---
+
+<a id="who-its-for"></a>
+## Who it's for
+
+PasteSpace was created for people and companies for whom security and privacy come first: anyone for whom copying and pasting is a large part of the day — or the job itself — and anyone who works with sensitive data or confidential documents. Lawyers and accountants, finance and HR teams, developers and system administrators handling keys and credentials, support agents, translators, editors and data-entry staff. For them, a clipboard manager has to remember everything without becoming a risk of its own. So PasteSpace keeps everything on the Mac, with no account and no cloud; encrypts secrets the moment they're copied; lets you shut sensitive apps out entirely; and can erase its history every time it quits.
 
 ---
 
@@ -429,7 +437,7 @@ What this means in practice:
 ### Where the key lives
 
 - PasteSpace creates one **256-bit key** for your Vault, on your Mac.
-- It's stored in **your macOS Keychain**, marked **available only while your Mac is unlocked** and **only on this Mac** — it is never synced to iCloud or to other devices.
+- It's stored in **your macOS login Keychain**, on **this Mac only** — it is never synced to iCloud or to other devices.
 - A backup copy sits in PasteSpace's own **private, sandboxed folder** (readable only by your user account), so the Vault keeps working even if the Keychain entry is lost.
 - The key never leaves your Mac, and PasteSpace has no server that could receive it.
 
@@ -485,7 +493,7 @@ How the pieces fit together — everything inside one sandboxed app, on your Mac
 │  ┌──────────────┐   ┌──────────────────────────────────────┐ │
 │  │ Vision OCR   │   │  Vault key (256-bit)                 │ │
 │  │ (sandboxed   │   │ • macOS Keychain: this Mac only,     │ │
-│  │ helper),     │   │   available only while unlocked      │ │
+│  │ helper),     │   │   never synced to iCloud             │ │
 │  │ PDFKit       │   │ • Backup in the private app folder   │ │
 │  └──────────────┘   │ • Never leaves the Mac               │ │
 │  ┌──────────────┐   └──────────────────────────────────────┘ │
@@ -897,31 +905,6 @@ Nothing — it simply stops being erased when PasteSpace quits.
 
 ---
 
-<a id="requirements"></a>
-## System requirements
-
-- **macOS 14 Sonoma** or later, including macOS 27 beta.
-- Any Mac — Apple silicon or Intel.
-- Touch ID recommended for the Vault; your Mac's login password works on every Mac.
-
-### Under the hood
-
-| Component | Technology |
-|---|---|
-| Encryption | AES-256-GCM via Apple CryptoKit |
-| Key storage | macOS Keychain (this device only, available when unlocked), with a backup in the sandboxed app folder |
-| Vault fingerprints | HMAC-SHA256 under a key derived from the Vault key |
-| Authentication | Touch ID or device password via LocalAuthentication |
-| Text recognition | Apple Vision, in a separate sandboxed helper with no network or file access, which quits when idle |
-| Document reading | Apple PDFKit and AppKit's document readers; web pages by PasteSpace's own reader, which never loads anything a page links to |
-| Database | SQLite via GRDB.swift, with a full-text search index |
-| In-app purchase | StoreKit 2 with on-device verification |
-| Interface | SwiftUI and AppKit, native macOS |
-| Paste | Clipboard only — no simulated keystrokes, no Accessibility permission |
-| Export compliance | `ITSAppUsesNonExemptEncryption = false` (local data protection only) |
-
----
-
 <a id="whats-new"></a>
 ## What's new in PasteSpace 3.0
 
@@ -976,6 +959,31 @@ Nothing — it simply stops being erased when PasteSpace quits.
 - **Rate PasteSpace from inside the app** — from a card at the end of Settings, plus an occasional reminder at a quiet moment, which stops for good once you've used that card. [Why it matters →](#rating)
 - **Buy Pro straight from PasteSpace's App Store page**, as well as inside the app.
 - **A new app icon**, redrawn for current macOS.
+
+---
+
+<a id="requirements"></a>
+## System requirements
+
+- **macOS 14 Sonoma** or later, including macOS 27 beta.
+- Any Mac — Apple silicon or Intel.
+- Touch ID recommended for the Vault; your Mac's login password works on every Mac.
+
+### Under the hood
+
+| Component | Technology |
+|---|---|
+| Encryption | AES-256-GCM via Apple CryptoKit |
+| Key storage | macOS login Keychain (this Mac only, never synced to iCloud), with a backup in the sandboxed app folder |
+| Vault fingerprints | HMAC-SHA256 under a key derived from the Vault key |
+| Authentication | Touch ID or device password via LocalAuthentication |
+| Text recognition | Apple Vision, in a separate sandboxed helper with no network or file access, which quits when idle |
+| Document reading | Apple PDFKit and AppKit's document readers; web pages by PasteSpace's own reader, which never loads anything a page links to |
+| Database | SQLite via GRDB.swift, with a full-text search index |
+| In-app purchase | StoreKit 2 with on-device verification |
+| Interface | SwiftUI and AppKit, native macOS |
+| Paste | Clipboard only — no simulated keystrokes, no Accessibility permission |
+| Export compliance | `ITSAppUsesNonExemptEncryption = false` (local data protection only) |
 
 ---
 
