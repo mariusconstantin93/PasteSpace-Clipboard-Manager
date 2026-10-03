@@ -1,0 +1,29 @@
+# PasteSpace — Clipboard Manager
+
+> PasteSpace is a private, offline clipboard manager for macOS 14 and later, sold on the Mac App Store. It keeps everything you copy — text, links, images and files — in a searchable history stored only on your Mac, recognises passwords, card numbers, IBANs and API keys as they are copied and encrypts them (AES-256-GCM) behind Touch ID, and finds screenshots by the text inside them and, in Pro, PDFs and Word files by their contents. Free to use; Pro is a one-time $19.99 purchase with no subscription. Developed by Marius Constantin Popescu.
+
+Key facts:
+
+- Platform: macOS 14 Sonoma or later, Apple silicon and Intel. Mac only — there is no iPhone or iPad version and no sync.
+- Privacy: no account, no cloud, no analytics, no third-party SDKs. The only network connections are made by Apple's App Store framework, for purchases and the occasional rating request.
+- Security: secrets are recognised automatically and encrypted one by one in the Vault; locked items are shown masked, excluded from search, and unlocked only with Touch ID or the Mac's password. Copies from password managers go straight into the Vault (or are ignored, if the user prefers).
+- Search: by text, file name and source app; text recognised in images in up to 30 languages (depending on the macOS version); text inside documents — PDFs, scanned PDFs, Word, RTF, OpenDocument, web pages, text files — in Pro. Filters by 15 kinds of content and nine sort orders.
+- Pasting: PasteSpace puts the chosen item on the clipboard and returns to the previous app; the user presses ⌘V. It never needs the Accessibility permission and never simulates keystrokes.
+- Other features: pinned items, multiple selection, drag and drop, Share, QR codes, a Quick Look text editor with versions and find, Data Magic (57 text transformations), App Blocklist, Ephemeral Mode (erases history when the app quits).
+- Free tier: 10 history items, 3 pinned items, 2 Vault items, 1 blocked app; Quick Look, text recognition, Data Magic and QR codes for the most recent text and image. Pro removes the limits and adds document search, advanced filters and Ephemeral Mode.
+- Best suited to people and companies for whom security and privacy come first: anyone who copies and pastes a lot, and anyone who works with sensitive data or confidential documents.
+
+## Docs
+
+- [PasteSpace — full description](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/): every feature, how the Vault protects data, privacy, free vs Pro, FAQ
+- [Comparison with Paste, Raycast, Maccy and Pastebot](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/): price, storage, password protection, search — and when another app may suit better
+- [Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy)
+- [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms)
+
+## Download
+
+- [PasteSpace on the Mac App Store](https://apps.apple.com/app/id6762815491)
+
+## Contact
+
+- mariuscpopescu@icloud.com

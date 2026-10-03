@@ -1,11 +1,25 @@
 title: "PasteSpace — Clipboard Manager"
-description: "PasteSpace is a secure clipboard history app for macOS with Vault Mode, OCR, Data Magic, and zero data collection."
+description: "Private, offline clipboard manager for Mac. Encrypts passwords and card numbers behind Touch ID, finds text in screenshots and PDFs. Free; Pro is $19.99 once."
 url: "https://mariusconstantin93.github.io"
 baseurl: "/PasteSpace-Clipboard-Manager"
+lang: en_US
 
 plugins:
   - jekyll-seo-tag
+  - jekyll-sitemap
 
 author:
   name: "Marius Constantin Popescu"
   email: "mariuscpopescu@icloud.com"
+
+# Only the website is published. Anything else that ends up beside it — the app's
+# source, internal notes, drafts — must never become a public page or enter the sitemap.
+exclude:
+  - CLAUDE.md
+  - newreadme.md
+  - conversations.json
+  - Info.plist
+  - clipboard_manager
+  - clipboard_manager.xcodeproj
+  - OCRHelper
+  - Shared
