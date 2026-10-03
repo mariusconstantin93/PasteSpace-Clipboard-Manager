@@ -1,8 +1,8 @@
 ---
 layout: default
 title: "PasteSpace — Clipboard Manager"
-description: "PasteSpace is a private clipboard history app for macOS 14+. Encrypted Vault with Touch ID, search inside images and documents, filters and sorting, Data Magic, a Quick Look text editor with versions, QR codes, Share, drag and drop, rich-text fidelity, plain-text controls — fully offline, zero data collected."
-keywords: "PasteSpace, clipboard manager, macOS clipboard history, macOS 27, secure clipboard manager, encrypted clipboard, Vault, Touch ID, OCR, search inside PDF, document text search, clipboard filters, Data Magic, Quick Look text editor, QR code generator, drag and drop clipboard, multi-file clipboard, rich text clipboard, copy as plain text, paste as plain text, menu bar app, privacy-focused, offline, macOS app"
+description: "Private, offline clipboard manager for Mac. Encrypts passwords and card numbers behind Touch ID, finds text in screenshots and PDFs. Free; Pro is $19.99 once."
+keywords: "PasteSpace, clipboard manager for Mac, macOS clipboard manager, clipboard history, secure clipboard manager, encrypted clipboard manager, offline clipboard manager, private clipboard manager, clipboard manager for sensitive data, clipboard manager without subscription, Paste alternative, Maccy alternative, Pastebot alternative, Raycast clipboard alternative, Touch ID, password protection, OCR, search text in screenshots, search inside PDF, document search, Data Magic, Quick Look editor, menu bar app, macOS 14, macOS 26, macOS 27"
 permalink: /
 ---
 
@@ -29,6 +29,8 @@ permalink: /
 <p align="center">
   <strong>New in 3.0:</strong> text recognition in 30 languages, search inside documents, filters and sorting, a stronger Vault and a redesigned window. <a href="#whats-new">See everything new →</a>
 </p>
+
+**PasteSpace at a glance:** a clipboard manager for macOS 14 and later that keeps everything you copy — text, links, images and files — in a searchable history, entirely on your Mac. It recognises passwords, card numbers, IBANs and API keys the moment you copy them and encrypts them behind Touch ID; finds screenshots by the text inside them and, in Pro, PDFs and Word files by their contents; and connects to nothing but Apple's App Store. Free to use; Pro is a single $19.99 payment. Developed by Marius Constantin Popescu. [How it compares with Paste, Raycast, Maccy and Pastebot →](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/)
 
 ---
 
@@ -58,6 +60,7 @@ permalink: /
 - [Every setting, explained](#settings)
 - [Keyboard shortcuts](#shortcuts)
 - [Questions people ask](#faq)
+- [Compared with Paste, Raycast, Maccy and Pastebot ↗](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/)
 - [What's new in PasteSpace 3.0](#whats-new)
 - [System requirements](#requirements)
 - [Contact](#contact)
@@ -870,6 +873,27 @@ At the end of Settings, **Rate PasteSpace on the App Store** opens PasteSpace's 
 <a id="faq"></a>
 ## Questions people ask
 
+**Is there a clipboard manager for Mac that encrypts passwords?**
+Yes. PasteSpace recognises passwords, card numbers, IBANs, API keys and other secrets the moment you copy them and encrypts each one with AES-256 in its Vault. They're shown masked and unlocked only with Touch ID or your Mac's password, and search can't see inside them. [More](#vault).
+
+**Which clipboard manager for Mac works completely offline?**
+PasteSpace keeps your history only on your Mac — no account, no sync, no cloud — and every feature, including text recognition and document search, works offline. It uploads nothing; its only connection is Apple's App Store framework, for purchases and the occasional rating request. [More](#privacy).
+
+**Is there a clipboard manager for Mac without a subscription?**
+PasteSpace is free to use, and Pro is a single $19.99 payment that's yours for life. [More](#free-vs-pro).
+
+**Can a clipboard manager find a screenshot by the text in it?**
+Yes. PasteSpace reads the text in every image you copy — in up to 30 languages, depending on your version of macOS — so searching for a word that was in a screenshot finds it. [More](#ocr).
+
+**Can I search inside the PDFs and Word documents I've copied?**
+With Pro, yes. PasteSpace reads the text of the documents you copy in Finder — scanned PDFs included — so a search finds the file that contains the words. [More](#documents).
+
+**Does PasteSpace sync with my iPhone or iPad?**
+No. Your history stays on the Mac where you copied it — that's what lets PasteSpace promise it never leaves your device. If you need your clipboard on several devices, [see how PasteSpace compares](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/).
+
+**How does PasteSpace compare with Paste, Raycast, Maccy or Pastebot?**
+[This comparison](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/) sets out the differences — price, where your history is kept, how secrets are protected, search inside screenshots and documents — and says when one of the others may suit you better.
+
 **Why do I have to press ⌘V myself?**
 Pasting for you would require the macOS Accessibility permission, which lets an app observe and control everything on your Mac. PasteSpace is built never to need it: choosing an item puts it on the clipboard and brings back the app you were in, so all that's left is ⌘V — and the paste stays yours.
 
@@ -896,9 +920,6 @@ It may have come from a blocked app or a password manager, been marked private b
 
 **Will updating PasteSpace delete my history?**
 No. Your history, pinned items and Vault are kept across updates.
-
-**Does PasteSpace upload anything?**
-No. The only connection is Apple's App Store framework, for purchases and the occasional rating request. [More](#privacy).
 
 **What happens to my history if I stop using Ephemeral Mode?**
 Nothing — it simply stops being erased when PasteSpace quits.
