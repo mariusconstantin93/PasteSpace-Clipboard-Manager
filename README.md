@@ -892,7 +892,7 @@ With Pro, yes. PasteSpace reads the text of the documents you copy in Finder —
 No. Your history stays on the Mac where you copied it — that's what lets PasteSpace promise it never leaves your device. If you need your clipboard on several devices, [see how PasteSpace compares](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/).
 
 **How does PasteSpace compare with Paste, Raycast, Maccy or Pastebot?**
-[This comparison](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/) sets out the differences — price, where your history is kept, how secrets are protected, search inside screenshots and documents — and says when one of the others may suit you better.
+[This comparison](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/) sets out the differences — price, where your history is kept, how secrets are protected, search inside screenshots and documents, editing and transformations — and says when one of the others may suit you better.
 
 **Why do I have to press ⌘V myself?**
 Pasting for you would require the macOS Accessibility permission, which lets an app observe and control everything on your Mac. PasteSpace is built never to need it: choosing an item puts it on the clipboard and brings back the app you were in, so all that's left is ⌘V — and the paste stays yours.
@@ -942,7 +942,7 @@ Nothing — it simply stops being erased when PasteSpace quits.
 
 ### Finding things
 
-- **Filters and sorting** — narrow your history by 15 kinds of content (links, code, passwords, images, PDFs and other documents, archives, folders…), and in Pro by date, state and source app. Nine sort orders, including *Most used* and *Recently used*. Every active filter is shown as a removable chip, so nothing ever silently hides part of your history.
+- **Filters and sorting** — narrow your history by 16 kinds of content (links, code, passwords, images, PDFs and other documents, archives, folders…), and in Pro by date, state and source app. Nine sort orders, including *Most used* and *Recently used*. Every active filter is shown as a removable chip, so nothing ever silently hides part of your history.
 - **Search inside documents** *(Pro)* — the PDFs, Word, RTF and OpenDocument files, web pages, and text and code files you copy are read, so searching for a word finds the file that contains it. Scanned PDFs are recognised page by page, and no document is too large to be read.
 - **Find in Quick Look** — press **⌘F** (or the 🔍 in the title bar) to search the text you're reading or editing, including the text of images and documents. Accents don't matter: *sarbatoare* finds *sărbătoare*.
 - **Item details** — an ⓘ next to each item shows what the row can't: the code language, the full link, a file's size and location, image dimensions, when it will be removed — and every time the item was copied.
