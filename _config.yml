@@ -1,5 +1,7 @@
 title: "PasteSpace — Clipboard Manager"
 description: "Private, offline clipboard manager for Mac. Encrypts passwords and card numbers behind Touch ID, finds text in screenshots and PDFs. Free; Pro is $19.99 once."
+# The home page's <title> is "title | tagline"; without a tagline it would be the whole description.
+tagline: "Private, offline clipboard manager for Mac"
 url: "https://mariusconstantin93.github.io"
 baseurl: "/PasteSpace-Clipboard-Manager"
 lang: en_US
