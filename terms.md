@@ -1,6 +1,6 @@
 # Terms of Use
 
-**Last Updated: October 3, 2026**
+**Last Updated: October 8, 2026**
 
 ### 1. Acceptance of Terms
 By downloading, installing, or using PasteSpace — Clipboard Manager ("PasteSpace", "the App"), you agree to be bound by these Terms of Use. If you do not agree to these terms, do not install or use the App.
@@ -51,7 +51,7 @@ When the Vault and its automatic detection are enabled (both are on by default),
 You are solely responsible for the security of your clipboard content. PasteSpace is not liable for any sensitive data that is not automatically detected or for any data breach resulting from circumstances beyond the App's control.
 
 ### 11. Ephemeral Mode
-Ephemeral Mode (Pro feature) erases your clipboard history whenever PasteSpace quits, including when your Mac logs out, restarts, or shuts down. PasteSpace asks you to confirm before quitting; when macOS is logging out, restarting, or shutting down and no answer is given within 20 seconds, the erasure proceeds. Vault items are always kept, and pinned items are kept unless you choose otherwise. Erased items cannot be recovered.
+Ephemeral Mode (Pro feature) erases your clipboard history whenever PasteSpace quits, including when your Mac logs out, restarts, or shuts down. When you quit PasteSpace yourself, it asks you to confirm first; when your Mac logs out, restarts, or shuts down, the erasure proceeds without asking, because macOS does not let menu-bar apps pause or cancel it. Vault items are always kept, and pinned items are kept unless you choose otherwise. Erased items cannot be recovered.
 
 ### 12. App Blocklist
 The App Blocklist allows you to prevent PasteSpace from recording clipboard content from specific applications — 1 application in the Free tier, any number in Pro. Copies from known password managers are recorded only into the Vault, encrypted, while "Capture from password managers" is on (the default), and are ignored entirely when it is off.

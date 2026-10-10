@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last Updated: October 3, 2026**
+**Last Updated: October 10, 2026**
 
 PasteSpace — Clipboard Manager ("PasteSpace", "the App") is developed by Marius Constantin Popescu. This Privacy Policy explains how the App handles your data.
 
@@ -24,7 +24,7 @@ Because PasteSpace collects zero personal data, it is inherently compliant with 
 PasteSpace stores the following data locally within its macOS App Sandbox container:
 
 - Clipboard History: text (with its formatting), links, images, and references to files copied to your system clipboard, together with the name of the app each item was copied from and the date and time. Stored in a local SQLite database.
-- Copy History and Usage: a record of each time an item is copied — when, and whether in another app or from PasteSpace — and how often you use each item from PasteSpace. It powers the item details and the "Most used" and "Recently used" sort orders, and is deleted together with the item.
+- Copy History and Usage: a record of each time an item is copied — when, and whether in another app or from PasteSpace — and how often you use each item from PasteSpace; for a copied file, also when it was moved to the Trash, put back, or deleted from your disk while the item was in your history. It powers the item details and the "Most used" and "Recently used" sort orders. When an item is deleted, this history is kept under a keyed fingerprint (see Section 6) — the number of times it was copied, the dates, times and apps of its 20 most recent copies, when it was deleted, and what happened to its file — so that it continues if you copy the same content again. Ephemeral Mode keeps only the number of copies.
 - Vault Items: clipboard content encrypted using AES-256-GCM, together with its formatting and any text read from it. The ciphertext, nonce, and authentication tag are stored in the same local database, alongside a masked preview and a keyed fingerprint (see Section 6).
 - Recognised and Extracted Text: text recognised in copied images (Section 8) and, in the Pro tier, text extracted from copied documents (Section 9), stored alongside the corresponding item so that it can be searched.
 - Edited Versions: texts you edit and save in Quick Look, stored as new items linked to the original.
@@ -66,7 +66,7 @@ The Vault uses industry-standard encryption:
 - Key Storage: a single 256-bit key, created on your Mac and stored in your macOS login Keychain. It is never synced to iCloud or transferred to another device.
 - File Backup: a synchronized copy of the key is kept in the sandboxed Application Support directory with POSIX 0600 permissions (readable only by your user account) as a safety net
 - Search: locked items are removed from the search index, so their contents cannot be found, or confirmed, by searching
-- Previews and Fingerprints: a locked item shows only a masked preview, and its duplicate-detection fingerprint is computed with a key derived from the Vault key (HMAC-SHA256), so it reveals nothing without that key
+- Previews and Fingerprints: a locked item shows only a masked preview, and its duplicate-detection fingerprint is computed with a key derived from the Vault key (HMAC-SHA256), so it reveals nothing without that key. The fingerprints that keep the history of deleted items are computed the same way, with a key of their own, and reveal nothing about those items
 
 Locking a file item protects PasteSpace's record of the file — its name and location. The file itself, on your disk, is not encrypted.
 
@@ -118,7 +118,7 @@ When you share an item, it is handed to the macOS sharing service you choose (fo
 - Pinned items can be removed with "Clear Pinned", and Vault items with "Clear Vault" (after authentication), in Settings.
 - When the history limit is reached, the oldest unpinned items are removed automatically, and — if you set "Keep history for" to 1, 7, or 30 days — so are items older than that. Pinned and Vault items are never removed automatically.
 - Ephemeral Mode (Pro) erases your clipboard history whenever PasteSpace quits, including when your Mac logs out, restarts, or shuts down; the erasure is completed the next time PasteSpace starts. Vault items are always kept, and pinned items are kept unless you choose otherwise.
-- Deleting an item also deletes its copy history and any text read from it. Deleted items cannot be recovered.
+- Deleting an item also deletes its copy history and any text read from it. Deleted items cannot be recovered. Only its history outlives it — how many times, when and in which apps it was copied, when it was deleted, and what happened to its file — kept under a fingerprint that reveals nothing about its content (Section 3), however it was removed. Ephemeral Mode keeps only the number of copies. "Forget" under "History of deleted items" in Settings erases all of it.
 - macOS keeps an app's data after the app itself is deleted. To remove all of PasteSpace's data, quit the App, delete the folders "com.pastespace.clipboard-manager" and "com.pastespace.clipboard-manager.ocr-helper" in ~/Library/Containers, and delete the "com.pastespace.clipboard-manager.vault" item from your login keychain in Keychain Access.
 
 ### 13. Children's Privacy
@@ -130,7 +130,7 @@ PasteSpace uses the following macOS capabilities to function:
 - Clipboard Access (NSPasteboard): to monitor and record clipboard content.
 - Touch ID / Device Password (LocalAuthentication): to authenticate access to Vault items.
 - App Sandbox: the App and its text-recognition helper run within Apple's App Sandbox, which restricts access to the file system and other apps' data.
-- File Access (security-scoped bookmarks): to access files you copy in Finder — for preview, document reading, and dragging them back out.
+- File Access (security-scoped bookmarks): to access files you copy in Finder — for preview, document reading, and dragging them back out — and to notice when they are moved to the Trash, put back, or deleted.
 - Network (outgoing connections): used only by Apple's StoreKit framework, for purchases and the rating request.
 
 PasteSpace does not request the Accessibility permission, does not monitor your keystrokes (it receives only its own global shortcut), and never simulates keystrokes.

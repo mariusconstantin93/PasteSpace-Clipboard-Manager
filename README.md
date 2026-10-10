@@ -192,17 +192,28 @@ Every row shows what it is at a glance:
 - **A small text badge on the icon** when PasteSpace has read text out of the item — words recognised in an image, or the text of a document. It's a marker, not a button: the text itself is read in Quick Look.
 - **The source app and the exact date and time** at the bottom right. (Dates show the year only when it isn't the current one.)
 - **An ⓘ** next to the source. Hover over it for a moment, or click it, to see what the row can't show: the kind of content and its size in characters, words and lines, the programming language of a code snippet, the full link, a file's location, kind and size, a folder's total size, an image's dimensions, whether the item is an edited version, and — if *Keep history for* is set — when it will be removed automatically. For a locked Vault item, the ⓘ says only **Protected**.
-- **The item's copy history**, at the bottom of the ⓘ details: how many times it has been copied, then each copy on its own line, newest first — the date and time, and where it happened:
+- **The item's history**, at the bottom of the ⓘ details, in up to three parts, newest first: every time it was copied — the date and time, and where it happened — then when it was deleted from your history, and, for a file, what happened to it on disk:
 
   ```text
   Copied: 4 times
-  Oct 2, 18:20 · from PasteSpace
-  Oct 2, 18:11 · in Passwords
-  Oct 1, 09:02 · from PasteSpace, as plain text
-  Sep 30, 14:10 · its text, from PasteSpace
+  Oct 8, 21:39 · in Finder
+  Oct 8, 18:11 · from PasteSpace
+  Oct 7, 09:02 · from PasteSpace, as plain text
+  Oct 6, 14:10 · in Finder
+
+  Deleted from PasteSpace history: 1 time
+  Oct 8, 21:30
+
+  File on disk:
+  Oct 9, 10:15 · put back from the Trash
+  Oct 9, 10:02 · moved to the Trash
   ```
 
-  "In Safari" means you copied it in Safari; "from PasteSpace" means you copied it out of your history. The 20 most recent copies are listed, with a count of the earlier ones. Items that were already in your history before this feature existed show the last copies PasteSpace knew about, followed by *Earlier copies weren't recorded*. A locked item's copy history appears once you reveal it. Dragging an item into another app and sharing it aren't counted as copies.
+  "In Finder" means you copied it in Finder; "from PasteSpace" means you copied it out of your history. The 20 most recent copies are listed, with a count of the earlier ones. Items that were already in your history before this feature existed show the last copies PasteSpace knew about, followed by *Earlier copies weren't recorded*. If you delete an item and later copy the same thing again, its history carries on where it left off. (After Ephemeral Mode, only the number of copies carries on.) A locked item's history appears once you reveal it. Dragging an item into another app and sharing it aren't counted as copies.
+
+  **File on disk** follows every file in your history: moving it to the Trash, putting it back, and deleting it permanently — emptying the Trash, or ⌘⌥⌫ in Finder — are noted the moment they happen. If it happens while PasteSpace isn't running, it's caught the next time PasteSpace starts: a move to or from the Trash still shows its real time, while a deletion shows when PasteSpace noticed it, marked *(noticed then)*. A file you edit and save stays the same file — it isn't reported as deleted.
+
+  The row follows along. A file in the Trash is marked *File is in Trash*, nothing hands it to another app, and its ↗ button shows it in the Trash, where Finder's **Put Back** restores it. A file deleted from disk leaves only what concerns the item itself: you can delete the item, unpin or unlock it, and still copy any text PasteSpace read from the file — the rest of its buttons go inactive. A file on a disk that isn't connected says so, rather than being reported as deleted.
 - **Action buttons** along the bottom — faint until you point at the row, so the list stays calm. When you select two or more items, the rows hide their buttons and show the order you picked them in; the actions move to the selection bar.
 
 <a id="buttons"></a>
@@ -255,7 +266,7 @@ Two settings work together:
 - **History limit** — how many items to keep. When it's reached, the oldest items make room for new ones. Pinned and Vault items don't count toward the limit and are never removed by it. Free: 10 items. Pro: any number, or unlimited.
 - **Keep history for** — *Forever* (the default), *1 day*, *7 days* or *30 days*. Items older than that are removed automatically. Copying an item again restarts its time; unpinning an item gives it a fresh period. Pinned and Vault items never expire.
 
-PasteSpace also keeps, privately on your Mac, a record of every time each item is copied — the copy history in its ⓘ details — and counts how often you use each item from PasteSpace, which powers the *Most used* and *Recently used* sort orders. When an item is deleted, its records go with it. None of this is ever shared or leaves your Mac.
+PasteSpace also keeps, privately on your Mac, a record of every time each item is copied and, for a file, of it being moved to the Trash, put back or deleted — the history in its ⓘ details — and counts how often you use each item from PasteSpace, which powers the *Most used* and *Recently used* sort orders. When an item is deleted, its content goes, but its history stays: how many times it was copied, when and in which apps its 20 most recent copies happened, when it was deleted, and what happened to its file. It's kept under a fingerprint computed with a key only your Mac holds, so it reveals nothing about the item's content, not even to someone with a copy of PasteSpace's database; it's there so the history carries on if you copy the same thing again. It's kept however the item leaves — deleted, removed by the history limit or *Keep history for*, or cleared — except that Ephemeral Mode keeps only the number of copies. **Forget**, under *History of deleted items* in Settings, erases all of it. None of this is ever shared or leaves your Mac.
 
 ---
 
@@ -310,9 +321,9 @@ In the free version the advanced part of the filter panel is visible but dimmed.
 
 The sort menu next to the filter button changes the order of the list:
 
-*Custom order* (yours — the default) · *Newest first* · *Oldest first* · *Largest first* · *Smallest first* · *Source app* · *Kind* · *Most used* · *Recently used*
+*Default order* (yours — rearrange it by dragging) · *Newest first* · *Oldest first* · *Largest first* · *Smallest first* · *Source app* · *Kind* · *Most used* · *Recently used*
 
-Any order other than *Custom* is a temporary view: your own arrangement is kept untouched underneath, and choosing *Custom order* again brings it back exactly. The sort you choose is remembered between launches (unlike filters), and while it's active it appears as a chip too, so you always know why the list looks the way it does. Sorting is free.
+Any order other than *Default order* is a temporary view: your own arrangement is kept untouched underneath, and choosing *Default order* again brings it back exactly. The sort you choose is remembered between launches (unlike filters), and while it's active it appears as a chip too, so you always know why the list looks the way it does. Sorting is free.
 
 ---
 
@@ -665,7 +676,7 @@ Everything runs offline, on your Mac. Code detection recognises around 30 progra
 
 Drag items **out of** PasteSpace straight into other apps:
 
-- **Text** into a text field, a document or a message — it's inserted where you drop it.
+- **Text** into a text field, a document or a message — it's inserted where you drop it. Formatted text keeps its formatting, exactly as when you paste it (or arrives as plain text, if *Always paste as plain text* is on).
 - **Links** into a browser, a note or an email.
 - **Images** into a document or a chat.
 - **Files and groups of files** into Finder, Mail, Slack and other apps — as the real files, not shortcuts.
@@ -741,12 +752,12 @@ Tell PasteSpace to ignore certain apps completely. Anything copied in a blocked 
 
 For when you want a clean slate every day. With Ephemeral Mode on, your history is erased whenever PasteSpace quits — including when your Mac restarts or shuts down.
 
-- **When you quit, PasteSpace asks first.** A window shows exactly what will happen — what will be erased and what will be kept — with **Confirm and Quit** and **Cancel**. Cancel (or Esc) keeps PasteSpace running with your history untouched.
-- **The same question appears when your Mac is about to log out, restart or shut down.** There, Cancel also stops the log out, restart or shut down. If nobody answers within **20 seconds**, PasteSpace goes ahead and erases your history as promised — an unattended Mac is never kept from shutting down.
+- **When you quit PasteSpace, it asks first.** A window shows exactly what will happen — what will be erased and what will be kept — with **Confirm and Quit** and **Cancel**. Cancel (or Esc) keeps PasteSpace running with your history untouched.
+- **When your Mac logs out, restarts or shuts down, there's no question.** macOS doesn't wait for menu-bar apps at that point — it asks them to quit only once the log out can no longer be stopped — so PasteSpace quits straight away and your history is erased as promised.
 - **Vault items are always kept.**
 - **Pinned items are kept** too, unless you turn off *Keep Pinned items*.
 - The erasing is completed the next time PasteSpace starts, before any history is shown. Doing it at startup means it still happens even if your Mac shut down before PasteSpace could finish quitting.
-- Erased items can't be recovered.
+- Erased items can't be recovered. All that's left of them is how many times each was copied, under a fingerprint that reveals nothing about it ([why](#history)).
 
 ---
 
@@ -761,8 +772,9 @@ For when you want a clean slate every day. With Ephemeral Mode on, your history 
 | Clear history (🗑 in the footer) | Everything **except** pinned and Vault items | Asks you to confirm |
 | Clear Pinned (Settings) | All pinned items | Asks you to confirm |
 | Clear Vault (Settings) | All Vault items | Touch ID or your password |
+| Forget (Settings › History of deleted items) | The history deleted items left behind — copies, deletions, files | Asks you to confirm |
 
-Deleted items can't be recovered.
+Deleted items can't be recovered. Only their history stays, until you forget it — see [How long items are kept](#history).
 
 ---
 
@@ -809,6 +821,8 @@ PasteSpace is **free to use**. Pro removes the limits and adds the power tools �
 
 Buy Pro inside the app (Settings, or any **PRO** badge), or directly from PasteSpace's page on the Mac App Store.
 
+Got a code for Pro? Redeem it in PasteSpace — **Redeem a Code**, under the purchase button in Settings — or in the App Store app, or open the link it came with. Pro unlocks as soon as the code is accepted. Redeeming codes requires macOS 15 or later.
+
 **One purchase. No subscription. No account.**
 
 ---
@@ -828,6 +842,7 @@ Buy Pro inside the app (Settings, or any **PRO** badge), or directly from PasteS
 | Join multiple items with | New line | The separator placed between items copied together (`\n` new line, `\t` tab, or any text). |
 | History limit | 10 (free) | How many items to keep. Pro: any number, or ∞. |
 | Keep history for | Forever | Removes unpinned items older than 1, 7 or 30 days. |
+| History of deleted items | Kept | When and where deleted items were copied, when they were deleted and what happened to their files, so their history carries on if you copy them again. Ephemeral Mode keeps only the number of copies. **Forget** erases it. |
 | Pinned limit | 3 (free) | How many items can be pinned. Pro: any number, or ∞. |
 | Ephemeral Mode *(Pro)* | Off | Erases your history when PasteSpace quits. With *Keep Pinned items* (on). |
 | App Blocklist | Empty | Apps whose copies are never recorded. |
@@ -854,7 +869,7 @@ At the end of Settings, **Rate PasteSpace on the App Store** opens PasteSpace's 
 | **⌘Return** | Add the focused item to the selection, or remove it |
 | **⌘-click** | Add an item to the selection, or remove it |
 | **⇧-click** | Select a range |
-| **Esc** | Clear the selection — or close PasteSpace if nothing is selected |
+| **Esc** | Clear the selection, then the highlight left by ↑ ↓ — or close PasteSpace if neither is showing |
 | **⌘V** | Paste, in your app |
 
 **In Quick Look**
@@ -945,7 +960,7 @@ Nothing — it simply stops being erased when PasteSpace quits.
 - **Filters and sorting** — narrow your history by 16 kinds of content (links, code, passwords, images, PDFs and other documents, archives, folders…), and in Pro by date, state and source app. Nine sort orders, including *Most used* and *Recently used*. Every active filter is shown as a removable chip, so nothing ever silently hides part of your history.
 - **Search inside documents** *(Pro)* — the PDFs, Word, RTF and OpenDocument files, web pages, and text and code files you copy are read, so searching for a word finds the file that contains it. Scanned PDFs are recognised page by page, and no document is too large to be read.
 - **Find in Quick Look** — press **⌘F** (or the 🔍 in the title bar) to search the text you're reading or editing, including the text of images and documents. Accents don't matter: *sarbatoare* finds *sărbătoare*.
-- **Item details** — an ⓘ next to each item shows what the row can't: the code language, the full link, a file's size and location, image dimensions, when it will be removed — and every time the item was copied.
+- **Item details** — an ⓘ next to each item shows what the row can't: the code language, the full link, a file's size and location, image dimensions and when it will be removed. It also shows the item's history — every copy, every deletion from your history and, for a file, every move to the Trash and back and its permanent deletion — and that history carries on even if you delete the item and copy it again.
 
 ### Text in images and documents
 
@@ -971,12 +986,12 @@ Nothing — it simply stops being erased when PasteSpace quits.
 
 ### Drag and drop
 
-- **Fixed throughout, and tested with every kind of item** — text, links, images, single files, groups of files, Vault items and multiple selections — into Finder, Apple's apps and third-party apps alike, including web-based ones such as Slack and WhatsApp. Files arrive as real files under their own names, a selection arrives whole, and several locked items need just one Touch ID.
+- **Fixed throughout, and tested with every kind of item** — text, links, images, single files, groups of files, Vault items and multiple selections — into Finder, Apple's apps and third-party apps alike, including web-based ones such as Slack and WhatsApp. Files arrive as real files under their own names, formatted text keeps its formatting, a selection arrives whole, and several locked items need just one Touch ID.
 
 ### Also new
 
 - **Share** any item through Messages, Mail, AirDrop, Notes and other services.
-- **Ephemeral Mode asks before quitting** — it shows what will be erased and what will be kept, and asks too when your Mac is about to log out, restart or shut down.
+- **Ephemeral Mode asks before you quit** — it shows what will be erased and what will be kept.
 - **Rate PasteSpace from inside the app** — from a card at the end of Settings, plus an occasional reminder at a quiet moment, which stops for good once you've used that card. [Why it matters →](#rating)
 - **Buy Pro straight from PasteSpace's App Store page**, as well as inside the app.
 - **A new app icon**, redrawn for current macOS.
