@@ -79,7 +79,7 @@ You copy a phone number, then a link, then a paragraph from a document. When you
 <a id="who-its-for"></a>
 ## Who it's for
 
-PasteSpace was created for people and companies for whom security and privacy come first: anyone for whom copying and pasting is a large part of the day — or the job itself — and anyone who works with sensitive data or confidential documents. Lawyers and accountants, finance and HR teams, developers and system administrators handling keys and credentials, support agents, translators, editors and data-entry staff. For them, a clipboard manager has to remember everything without becoming a risk of its own. So PasteSpace keeps everything on the Mac, with no account and no cloud; encrypts secrets the moment they're copied; lets you shut sensitive apps out entirely; and can erase its history every time it quits.
+PasteSpace was created for people and companies or institutions for whom security and privacy come first: anyone for whom copying and pasting is a large part of the day — or the job itself — and anyone who works with sensitive data or confidential documents. Lawyers and accountants, finance and HR teams, developers and system administrators handling keys and credentials, support agents, translators, editors and data-entry staff. For them, a clipboard manager has to remember everything without becoming a risk of its own. So PasteSpace keeps everything on the Mac, with no account and no cloud; encrypts secrets the moment they're copied; lets you shut sensitive apps out entirely; and can erase its history every time it quits.
 
 ---
 
