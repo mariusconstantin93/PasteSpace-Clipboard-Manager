@@ -1,6 +1,6 @@
 # Privacy Policy
 
-**Last Updated: October 10, 2026**
+**Last Updated: October 11, 2026**
 
 PasteSpace — Clipboard Manager ("PasteSpace", "the App") is developed by Marius Constantin Popescu. This Privacy Policy explains how the App handles your data.
 
@@ -90,7 +90,7 @@ Text recognition uses Apple's Vision framework to read the text in copied images
 - You can turn text recognition off in Settings.
 
 ### 9. Text Extraction from Documents
-In the Pro tier, PasteSpace reads the text of documents you copy — PDFs, Word, RTF, and OpenDocument files, web pages and web archives, and text and code files — so that you can find them by their contents. Scanned documents are read with text recognition, as described in Section 8.
+In the Pro tier, PasteSpace reads the text of documents you copy — PDFs, Word and Excel files, RTF and OpenDocument text files, web pages and web archives, and text and code files — so that you can find them by their contents. Scanned documents are read with text recognition, as described in Section 8.
 
 - All reading happens locally on your Mac, using Apple's PDFKit and AppKit document readers. Web pages are read by PasteSpace's own reader, which never downloads anything a page refers to — images, style sheets, scripts, or links.
 - The extracted text is stored alongside the file reference in the local database. Locked documents are not read, and text read before locking is encrypted with the item.

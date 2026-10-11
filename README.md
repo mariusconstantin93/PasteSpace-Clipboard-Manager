@@ -154,7 +154,7 @@ Whatever you copy as text, an image or a file, PasteSpace keeps:
 | **Formatted text** — from a web page, Pages, Word, Notes, Mail… | The text **and** its formatting — fonts, sizes, colours, bold, italic, highlights, lists. |
 | **Links** | The link, shown with a readable title derived from the address itself — PasteSpace never visits the page. |
 | **Images and screenshots** — from any app, or as image files in Finder | The image, at any size, plus the text in it ([OCR](#ocr)). |
-| **Documents** — PDFs (scanned ones too), Word, Pages, spreadsheets, presentations, web pages, text and code files | A reference to the file — and, in Pro, the text inside PDFs, Word, RTF and OpenDocument files, web pages and text files, so a search can find it ([more](#documents)). |
+| **Documents** — PDFs (scanned ones too), Word, Pages, spreadsheets, presentations, web pages, text and code files | A reference to the file — and, in Pro, the text inside PDFs, Word and Excel files, RTF and OpenDocument text files, web pages and text files, so a search can find it ([more](#documents)). |
 | **Any other file or folder** — archives, audio, video, apps | A reference to it, with its name, kind and size. The file itself stays where it is. |
 | **Several files at once** | One item that keeps them together, so they can be copied or dragged back as a group. |
 | **Passwords, card numbers, keys and other secrets** | Kept — but **encrypted in the Vault** and shown masked, whether PasteSpace recognised them or you locked them yourself ([Vault](#vault)). |
@@ -563,6 +563,7 @@ PasteSpace reads the text of the documents you copy in Finder, so searching for 
 | PDFs with a text layer | Page by page, with their original fonts, sizes and colours. |
 | Scanned PDFs (no text layer) | Every page is recognised like an image, one after another in the background — a long scan takes a few minutes. |
 | Word (`.doc`, `.docx`), RTF, OpenDocument text | With their formatting. |
+| Excel workbooks (`.xlsx`, `.xlsm`) | Every sheet, under its name, row by row with a tab between cells. Values appear as stored — a date as Excel's day number, a formula as its result. Older `.xls`, Numbers and OpenDocument spreadsheets aren't read. |
 | HTML pages and web archives | With their formatting — fonts, sizes, weights, colours, highlights, links, lists — read from the page's own style sheets, including those saved inside a web archive. Nothing the page refers to is ever downloaded. |
 | Plain text and source-code files | As they are, in whatever encoding they were saved — UTF-8 and UTF-16, and the older national ones such as Windows-1250, Windows-1251, Shift-JIS, GB18030, Big5 or KOI8-R, recognised automatically. |
 
@@ -819,7 +820,7 @@ PasteSpace is **free to use**. Pro removes the limits and adds the power tools �
 | Keep history for, item details, reordering | ✅ | ✅ |
 | Future updates | ✅ | ✅ |
 
-Buy Pro inside the app (Settings, or any **PRO** badge), or directly from PasteSpace's page on the Mac App Store.
+Buy Pro inside the app (Settings, or any **PRO** badge), or directly from PasteSpace's page on the Mac App Store. With Pro, PasteSpace's menu-bar icon carries a small **PRO** tag.
 
 Got a code for Pro? Redeem it in PasteSpace — **Redeem a Code**, under the purchase button in Settings — or in the App Store app, or open the link it came with. Pro unlocks as soon as the code is accepted. Redeeming codes requires macOS 15 or later.
 
@@ -958,7 +959,7 @@ Nothing — it simply stops being erased when PasteSpace quits.
 ### Finding things
 
 - **Filters and sorting** — narrow your history by 16 kinds of content (links, code, passwords, images, PDFs and other documents, archives, folders…), and in Pro by date, state and source app. Nine sort orders, including *Most used* and *Recently used*. Every active filter is shown as a removable chip, so nothing ever silently hides part of your history.
-- **Search inside documents** *(Pro)* — the PDFs, Word, RTF and OpenDocument files, web pages, and text and code files you copy are read, so searching for a word finds the file that contains it. Scanned PDFs are recognised page by page, and no document is too large to be read.
+- **Search inside documents** *(Pro)* — the PDFs, Word and Excel files, RTF and OpenDocument files, web pages, and text and code files you copy are read, so searching for a word finds the file that contains it. Scanned PDFs are recognised page by page, and no document is too large to be read.
 - **Find in Quick Look** — press **⌘F** (or the 🔍 in the title bar) to search the text you're reading or editing, including the text of images and documents. Accents don't matter: *sarbatoare* finds *sărbătoare*.
 - **Item details** — an ⓘ next to each item shows what the row can't: the code language, the full link, a file's size and location, image dimensions and when it will be removed. It also shows the item's history — every copy, every deletion from your history and, for a file, every move to the Trash and back and its permanent deletion — and that history carries on even if you delete the item and copy it again.
 
