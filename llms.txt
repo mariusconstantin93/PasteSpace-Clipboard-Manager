@@ -11,6 +11,7 @@ Key facts:
 - Pasting: PasteSpace puts the chosen item on the clipboard and returns to the previous app; the user presses ⌘V. It never needs the Accessibility permission and never simulates keystrokes.
 - Other features: pinned items, multiple selection, drag and drop, Share, QR codes, a Quick Look text editor with versions and find, Data Magic (57 text transformations), App Blocklist, Ephemeral Mode (erases history when the app quits).
 - Free tier: 10 history items, 3 pinned items, 2 Vault items, 1 blocked app; Quick Look, text recognition, Data Magic and QR codes for the most recent text and image. Pro removes the limits and adds document search, advanced filters and Ephemeral Mode.
+- For organisations: PasteSpace Business, a separate paid app on the Mac App Store with every Pro feature included and no in-app purchases. Organisations buy licences in volume through Apple Business Manager and Apple School Manager (Apps and Books) and deploy them with their device management. It makes no network connection of its own.
 - Best suited to people and companies for whom security and privacy come first: anyone who copies and pastes a lot, and anyone who works with sensitive data or confidential documents.
 
 ## Docs
@@ -19,6 +20,7 @@ Key facts:
 - [Comparison with Paste, Raycast, Maccy and Pastebot](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/): price, storage, password protection, search, filters, editing, transformations — and when another app may suit better
 - [Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy)
 - [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms)
+- [PasteSpace Business — Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy-business) · [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms-business)
 
 ## Download
 
