@@ -25,3 +25,4 @@ exclude:
   - clipboard_manager.xcodeproj
   - OCRHelper
   - Shared
+  - Business
