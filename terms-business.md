@@ -1,6 +1,10 @@
+---
+canonical_url: "https://pastespace.app/terms-business"
+---
+
 # PasteSpace Business — Terms of Use
 
-**Last Updated: October 12, 2026**
+**Last Updated: November 1, 2026**
 
 ### 1. Acceptance of Terms
 By downloading, installing, or using PasteSpace Business — Clipboard Manager ("PasteSpace Business", "the App"), you agree to be bound by these Terms of Use. When an organization obtains the App for the people who use it, these terms apply both to the organization and to each of those people. If you do not agree to these terms, do not install or use the App.
@@ -77,4 +81,6 @@ These terms are governed by and construed in accordance with the laws of Romania
 
 ### 18. Contact
 If you have questions about these Terms of Use, you can contact us at:
-mariuscpopescu@icloud.com
+
+- [contact@pastespace.app](mailto:contact@pastespace.app)
+- [support@pastespace.app](mailto:support@pastespace.app)

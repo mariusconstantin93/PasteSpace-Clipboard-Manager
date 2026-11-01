@@ -16,16 +16,22 @@ Key facts:
 
 ## Docs
 
-- [PasteSpace — full description](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/): every feature, how the Vault protects data, privacy, free vs Pro, FAQ
-- [Comparison with Paste, Raycast, Maccy and Pastebot](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/): price, storage, password protection, search, filters, editing, transformations — and when another app may suit better
-- [Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy)
-- [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms)
-- [PasteSpace Business — Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy-business) · [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms-business)
+- [PasteSpace guide](https://pastespace.app/guide): every feature, how the Vault protects data, privacy, free vs Pro, FAQ
+- [Comparison with Paste, Raycast, Maccy and Pastebot](https://pastespace.app/compare): price, storage, password protection, search, filters, editing, transformations — and when another app may suit better
+- [PasteSpace Business](https://pastespace.app/business): the edition for organisations, bought in volume through Apple Business Manager
+- [Privacy Policy](https://pastespace.app/privacy) · [Terms of Use](https://pastespace.app/terms)
+- [PasteSpace Business — Privacy Policy](https://pastespace.app/privacy-business) · [Terms of Use](https://pastespace.app/terms-business)
 
 ## Download
 
-- [PasteSpace on the Mac App Store](https://apps.apple.com/app/id6762815491)
+- [PasteSpace on the Mac App Store](https://apps.apple.com/app/id6762815491?mt=12)
+- [PasteSpace Business on the Mac App Store](https://apps.apple.com/app/id6822040824?mt=12)
+
+## Optional
+
+- [The complete guide as plain text](https://pastespace.app/llms-full.txt)
 
 ## Contact
 
-- mariuscpopescu@icloud.com
+- contact@pastespace.app
+- support@pastespace.app

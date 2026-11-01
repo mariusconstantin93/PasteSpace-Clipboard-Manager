@@ -1,6 +1,10 @@
+---
+canonical_url: "https://pastespace.app/terms"
+---
+
 # Terms of Use
 
-**Last Updated: October 8, 2026**
+**Last Updated: November 1, 2026**
 
 ### 1. Acceptance of Terms
 By downloading, installing, or using PasteSpace — Clipboard Manager ("PasteSpace", "the App"), you agree to be bound by these Terms of Use. If you do not agree to these terms, do not install or use the App.
@@ -84,4 +88,6 @@ These terms are governed by and construed in accordance with the laws of Romania
 
 ### 19. Contact
 If you have questions about these Terms of Use, you can contact us at:
-mariuscpopescu@icloud.com
+
+- [contact@pastespace.app](mailto:contact@pastespace.app)
+- [support@pastespace.app](mailto:support@pastespace.app)

@@ -12,7 +12,7 @@ plugins:
 
 author:
   name: "Marius Constantin Popescu"
-  email: "mariuscpopescu@icloud.com"
+  email: "contact@pastespace.app"
 
 # Only the website is published. Anything else that ends up beside it — the app's
 # source, internal notes, drafts — must never become a public page or enter the sitemap.
@@ -26,3 +26,5 @@ exclude:
   - OCRHelper
   - Shared
   - Business
+  - website
+  - tools

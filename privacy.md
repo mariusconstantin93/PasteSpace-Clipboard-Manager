@@ -1,6 +1,10 @@
+---
+canonical_url: "https://pastespace.app/privacy"
+---
+
 # Privacy Policy
 
-**Last Updated: October 11, 2026**
+**Last Updated: November 1, 2026**
 
 PasteSpace — Clipboard Manager ("PasteSpace", "the App") is developed by Marius Constantin Popescu. This Privacy Policy explains how the App handles your data.
 
@@ -140,4 +144,6 @@ We may update this Privacy Policy from time to time. Changes will be reflected i
 
 ### 16. Contact
 If you have questions or concerns about this Privacy Policy, you can contact us at:
-mariuscpopescu@icloud.com
+
+- [contact@pastespace.app](mailto:contact@pastespace.app)
+- [support@pastespace.app](mailto:support@pastespace.app)

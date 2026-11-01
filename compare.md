@@ -3,6 +3,7 @@ layout: default
 title: "PasteSpace vs Paste, Raycast, Maccy and Pastebot — Mac clipboard managers compared"
 description: "How PasteSpace compares with Paste, Raycast, Maccy and Pastebot: price, privacy, password protection, search inside screenshots and documents, editing, transformations — and when another app may suit you better."
 permalink: /compare/
+canonical_url: "https://pastespace.app/compare"
 ---
 
 # PasteSpace compared with other Mac clipboard managers
@@ -11,7 +12,7 @@ There are several good clipboard managers for the Mac, and the right one depends
 
 **A note on who's writing:** I'm the developer of PasteSpace, so this page isn't neutral. That's why every claim about another app comes from that app's own website, documentation or App Store page, linked at the bottom — and why the page also says when another app may suit you better.
 
-*Checked on October 4, 2026, and re-checked with every PasteSpace release. Prices are in US dollars, vary by country and change over time. If something here is out of date, [write to me](mailto:mariuscpopescu@icloud.com) and I'll correct it.*
+*Checked on October 4, 2026, and re-checked with every PasteSpace release. Prices are in US dollars, vary by country and change over time. If something here is out of date, write to [contact@pastespace.app](mailto:contact@pastespace.app) or [support@pastespace.app](mailto:support@pastespace.app) and I'll correct it.*
 
 *"Not mentioned" means I found no mention of it on the developer's own website, documentation or App Store page. It doesn't prove the feature is missing — check with the developer if it matters to you.*
 

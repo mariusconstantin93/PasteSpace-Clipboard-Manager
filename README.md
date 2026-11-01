@@ -4,6 +4,7 @@ title: "PasteSpace — Clipboard Manager"
 description: "Private, offline clipboard manager for Mac. Encrypts passwords and card numbers behind Touch ID, finds text in screenshots and PDFs. Free; Pro is $19.99 once."
 keywords: "PasteSpace, clipboard manager for Mac, macOS clipboard manager, clipboard history, secure clipboard manager, encrypted clipboard manager, offline clipboard manager, private clipboard manager, clipboard manager for sensitive data, clipboard manager without subscription, Paste alternative, Maccy alternative, Pastebot alternative, Raycast clipboard alternative, Touch ID, password protection, OCR, search text in screenshots, search inside PDF, document search, Data Magic, Quick Look editor, menu bar app, macOS 14, macOS 26, macOS 27"
 permalink: /
+canonical_url: "https://pastespace.app/guide"
 ---
 
 <h1 align="center">PasteSpace — Clipboard Manager</h1>
@@ -38,6 +39,7 @@ permalink: /
 
 - [The problem](#problem)
 - [Who it's for](#who-its-for)
+- [For your business](#business)
 - [How PasteSpace works](#how-it-works)
 - [Privacy](#privacy)
 - [Your clipboard history](#history)
@@ -79,7 +81,25 @@ You copy a phone number, then a link, then a paragraph from a document. When you
 <a id="who-its-for"></a>
 ## Who it's for
 
-PasteSpace was created for people and companies or institutions for whom security and privacy come first: anyone for whom copying and pasting is a large part of the day — or the job itself — and anyone who works with sensitive data or confidential documents. Lawyers and accountants, finance and HR teams, developers and system administrators handling keys and credentials, support agents, translators, editors and data-entry staff. For them, a clipboard manager has to remember everything without becoming a risk of its own. So PasteSpace keeps everything on the Mac, with no account and no cloud; encrypts secrets the moment they're copied; lets you shut sensitive apps out entirely; and can erase its history every time it quits.
+PasteSpace was created for people and companies for whom security and privacy come first: anyone for whom copying and pasting is a large part of the day — or the job itself — and anyone who works with sensitive data or confidential documents. Lawyers and accountants, finance and HR teams, developers and system administrators handling keys and credentials, support agents, translators, editors and data-entry staff. For them, a clipboard manager has to remember everything without becoming a risk of its own. So PasteSpace keeps everything on the Mac, with no account and no cloud; encrypts secrets the moment they're copied; lets you shut sensitive apps out entirely; and can erase its history every time it quits. Organisations that want it on every Mac can deploy [PasteSpace Business](#business), with everything included.
+
+---
+
+<a id="business"></a>
+## For your business
+
+Want PasteSpace on every Mac in your team? Apple doesn't let organisations buy in-app purchases in volume, so PasteSpace comes in a second edition made for them: **PasteSpace Business**.
+
+- **Everything included, for one price.** Every Pro feature from the first launch — unlimited history, pins and Vault, text in images and documents, every filter, Ephemeral Mode — with no in-app purchases, no upgrade prompts and no rating requests.
+- **Bought and deployed like your other managed apps.** PasteSpace Business is on the Mac App Store, and so in the *Apps and Books* catalogue of Apple Business Manager and Apple School Manager: your organisation buys as many licences as it needs there and sends the app to its Macs with its device management system, or hands out redemption codes. Apple handles payment, invoices and refunds.
+- **Nothing leaves the Mac.** Like PasteSpace, it keeps everything on the Mac it runs on — no account, no cloud. It reports nothing to us or to your organisation, and it makes no network connection of its own: with nothing to buy inside it, it doesn't even talk to the App Store.
+- **Its own app, its own data.** It installs as a separate app, *PasteSpace Business*, with its own history and its own Vault key, so it can sit beside PasteSpace on the same Mac without either touching the other.
+
+**How to get it.** Search for *PasteSpace Business* in Apple Business Manager's **Apps and Books**, or on the Mac App Store. Questions about licences or deploying it? Email **contact@pastespace.app** or **support@pastespace.app**.
+
+Rather keep it individual? Anyone can use PasteSpace from the Mac App Store and buy Pro with their own Apple Account — or buy PasteSpace Business, which has everything from the start.
+
+PasteSpace Business has its own [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms-business) and [Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy-business).
 
 ---
 
@@ -910,6 +930,9 @@ No. Your history stays on the Mac where you copied it — that's what lets Paste
 **How does PasteSpace compare with Paste, Raycast, Maccy or Pastebot?**
 [This comparison](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/compare/) sets out the differences — price, where your history is kept, how secrets are protected, search inside screenshots and documents, editing and transformations — and says when one of the others may suit you better.
 
+**Can my company buy PasteSpace for all its Macs?**
+Yes — as PasteSpace Business, the edition for organisations: every Pro feature for one price, with no in-app purchases. Your organisation buys licences in volume in Apple Business Manager's Apps and Books, or on the Mac App Store, and deploys them with its device management. [More](#business).
+
 **Why do I have to press ⌘V myself?**
 Pasting for you would require the macOS Accessibility permission, which lets an app observe and control everything on your Mac. PasteSpace is built never to need it: choosing an item puts it on the clipboard and brings back the app you were in, so all that's left is ⌘V — and the paste stays yours.
 
@@ -1027,6 +1050,7 @@ Nothing — it simply stops being erased when PasteSpace quits.
 ## Legal
 
 - [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms) · [Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy)
+- PasteSpace Business: [Terms of Use](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/terms-business) · [Privacy Policy](https://mariusconstantin93.github.io/PasteSpace-Clipboard-Manager/privacy-business)
 - **© 2026 Marius Constantin Popescu. All rights reserved.**
 
 <a id="contact"></a>
@@ -1034,4 +1058,4 @@ Nothing — it simply stops being erased when PasteSpace quits.
 
 Questions, feedback or feature requests?
 
-📧 **mariuscpopescu@icloud.com** — I read every email.
+📧 **contact@pastespace.app** or **support@pastespace.app** — I read every email.

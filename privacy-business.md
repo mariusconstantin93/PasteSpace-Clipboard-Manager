@@ -1,6 +1,10 @@
+---
+canonical_url: "https://pastespace.app/privacy-business"
+---
+
 # PasteSpace Business — Privacy Policy
 
-**Last Updated: October 12, 2026**
+**Last Updated: November 1, 2026**
 
 PasteSpace Business — Clipboard Manager ("PasteSpace Business", "the App") is developed by Marius Constantin Popescu. It is the edition of PasteSpace made for organizations, sold on the Mac App Store and in volume through Apple Business Manager and Apple School Manager. This Privacy Policy explains how the App handles your data.
 
@@ -128,4 +132,6 @@ We may update this Privacy Policy from time to time. Changes will be reflected i
 
 ### 15. Contact
 If you have questions or concerns about this Privacy Policy, you can contact us at:
-mariuscpopescu@icloud.com
+
+- [contact@pastespace.app](mailto:contact@pastespace.app)
+- [support@pastespace.app](mailto:support@pastespace.app)
